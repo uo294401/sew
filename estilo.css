@@ -1,0 +1,25 @@
+/*
+Darío Cristóbal González UO294401
+*/
+/*Especificidad: 001*/
+body {
+    background-color: #ffffff; 
+    color: #000000; 
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+/*Especificidad: 001*/
+header {
+        background-color: #ad2020c4; 
+        padding: 20px;
+    }
+  /*Especificidad: 001*/
+  h1 {
+    color: #ffee00b4;    
+    text-transform: uppercase;
+    padding: 2em; 
+    text-align: center;     
+    }
+      /*Especificidad: 001*/
+  nav {
+    color: #007BFF;     
+    }

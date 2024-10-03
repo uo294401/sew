@@ -20,10 +20,6 @@ header {
     text-align: center;     
     }
       /*Especificidad: 001*/
-  a:link {
-    color: #075ebc;         
+  nav {
+    color: #007BFF;     
     }
-/*Especificidad: 001*/
-a:visited {
-  color: #551A8B; /* Por ejemplo, un color púrpura */
-}

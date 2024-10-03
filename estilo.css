@@ -23,3 +23,7 @@ header {
   a:link {
     color: #007BFF;     
     }
+/*Especificidad: 001*/
+a:visited {
+  color: #551A8B; /* Por ejemplo, un color púrpura */
+}

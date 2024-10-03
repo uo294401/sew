@@ -20,6 +20,6 @@ header {
     text-align: center;     
     }
       /*Especificidad: 001*/
-  nav {
+  a:link {
     color: #007BFF;     
     }

@@ -30,10 +30,6 @@ header p {
   font-size: 0.9em; 
 
 }
-  /*Especificidad: 011*/
-a.active {
-  color: #000000; 
-}
 @media (max-width: 465px) {
     /*Especificidad: 001*/
   header {

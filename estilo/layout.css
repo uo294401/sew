@@ -113,11 +113,21 @@ dd {
 
 /*Especificidad: 001*/
 table { 
+  display: flex;
+  flex-direction: column;
   margin: 20px 0; 
   width: 100%; 
   max-width: 100%;
 }
-
+@media (max-width: 465px) {
+  .table {
+      flex-direction: row; 
+      flex-wrap: wrap; 
+  }
+  .cell {
+      flex: 50%; 
+  }
+}
 /*Especificidad: 001*/
 th {          
   padding: 10px;             

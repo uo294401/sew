@@ -9,24 +9,24 @@ body {
     }
 /*Especificidad: 001*/
 header {
-    color: #FFF457B4; 
+    color: #FFF675B4; 
     background-color: #480909; 
 }
 /*Especificidad: 002*/
 header a{
-  color: #FFF457B4;
+  color: #FFF675B4;
   text-decoration: none;
 }
 /*Especificidad: 002*/
 header p{
-  color: #FFF457B4;
+  color: #FFF675B4;
   text-decoration: none;
   font-size: 12px
 }
 
 /*Especificidad: 001*/
 h1 {
-  color: #FFF457B4;    
+  color: #FFF675B4;    
   text-transform: uppercase;
 }
 /*Especificidad: 021*/
@@ -93,7 +93,7 @@ dl {
 /*Especificidad: 001*/
 dt {
   font-weight: bold;         
-  color: #FFF457B4;            
+  color: #FFF675B4;            
   background-color: #480909; 
   padding: 5px;              
   margin-top: 10px;          
@@ -117,7 +117,7 @@ table {
 /*Especificidad: 001*/
 th {
   background-color: #480909; 
-  color: #FFF457B4;              
+  color: #FFF675B4;              
   padding: 10px;             
   text-align: center;          
   font-weight: bold;

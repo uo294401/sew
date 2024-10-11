@@ -113,5 +113,8 @@ td {
   color: #333;     
   background-color: #f2f2f2;        
 }
-
+  /*Especificidad: 011*/
+a.active {
+  color: white; 
+}
 

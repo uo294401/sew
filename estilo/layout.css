@@ -1,46 +1,31 @@
 header {
-  display: flex; /* Habilita Flexbox */
-  align-items: center; /* Alinea verticalmente el h1 y los enlaces al centro */
-  justify-content: space-between; /* Espacio entre h1 y los enlaces */
-  background-color: #b00000; /* Color de fondo rojo */
-  color: #f9d135; /* Color de texto amarillo */
-  padding: 10px 20px; /* Espaciado interno */
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  padding: 10px 20px; 
 }
 
 header h1 {
-  margin: 0; /* Elimina margen del h1 */
-  font-size: 2em; /* Ajusta el tamaño de la fuente si es necesario */
+  margin: 0; 
+  font-size: 2em; 
 }
 
-nav {
-  /* No se necesita margen en nav */
-}
 
 header nav ul {
-  display: flex; /* Hace que la lista sea un contenedor Flex */
-  list-style-type: none; /* Elimina viñetas de la lista */
-  margin: 0; /* Elimina márgenes */
-  padding: 0; /* Elimina padding */
+  display: flex; 
+  list-style-type: none; 
+  margin: 0; 
+  padding: 0; 
+  flex-wrap: wrap;
 }
 
 header nav ul li {
-  margin-left: 20px; /* Espaciado entre los enlaces */
+  margin-left: 20px; 
 }
 
-header nav a {
-  color: #f9d135; /* Color amarillo para los enlaces */
-  text-decoration: none; /* Elimina subrayado */
-}
-
-/* Efecto al pasar el ratón */
-header nav a:hover {
-  text-decoration: underline; /* Subrayado al pasar el ratón */
-}
-
-/* Estilo para el párrafo, manteniéndolo debajo */
 header p {
-  margin: 0; /* Elimina margen */
-  margin-top: 10px; /* Espaciado entre el párrafo y la parte superior */
-  font-size: 0.9em; /* Ajusta el tamaño de la fuente del párrafo si es necesario */
-  color: #f9d135; /* Color del texto del párrafo, opcional */
+  margin: 0; 
+  margin-top: 10px; 
+  font-size: 0.9em; 
+
 }

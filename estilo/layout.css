@@ -112,17 +112,10 @@ dd {
 }
 
 /*Especificidad: 001*/
-table { 
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+table {
   margin: 20px 0; 
   width: 100%; 
   max-width: 100%;
-}
-@media (max-width: 465px) {
-  table {
-      grid-template-columns: repeat(2, 1fr); 
-  }
 }
 /*Especificidad: 001*/
 th {          
@@ -136,6 +129,36 @@ td {
   border: 1px solid white; 
   text-align: center;    
 }
+@media (max-width: 465px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            /* Estilo para que cada celda ocupe toda la fila */
+            tr {
+                margin-bottom: 10px;
+            }
+
+            th {
+                display: none; /* Ocultar encabezados en dispositivos móviles */
+            }
+
+            td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-left: 50%;
+                position: relative;
+            }
+
+            td::before {
+                content: attr(data-label); /* Mostrar el nombre de la columna */
+                position: absolute;
+                left: 10px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+        }
 /*Especificidad: 001*/
 video {
   width: 100%;       

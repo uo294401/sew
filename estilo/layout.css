@@ -139,10 +139,6 @@ td {
                 margin-bottom: 10px;
             }
 
-            th {
-                display: none; /* Ocultar encabezados en dispositivos móviles */
-            }
-
             td {
                 display: flex;
                 justify-content: space-between;
@@ -151,13 +147,6 @@ td {
                 position: relative;
             }
 
-            td::before {
-                content: attr(data-label); /* Mostrar el nombre de la columna */
-                position: absolute;
-                left: 10px;
-                font-weight: bold;
-                text-transform: uppercase;
-            }
         }
 /*Especificidad: 001*/
 video {

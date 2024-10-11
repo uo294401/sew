@@ -113,19 +113,15 @@ dd {
 
 /*Especificidad: 001*/
 table { 
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   margin: 20px 0; 
   width: 100%; 
   max-width: 100%;
 }
 @media (max-width: 465px) {
-  .table {
-      flex-direction: row; 
-      flex-wrap: wrap; 
-  }
-  .cell {
-      flex: 50%; 
+  table {
+      grid-template-columns: repeat(2, 1fr); 
   }
 }
 /*Especificidad: 001*/

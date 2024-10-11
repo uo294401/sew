@@ -134,18 +134,15 @@ td {
                 display: block;
             }
 
-            /* Estilo para que cada celda ocupe toda la fila */
             tr {
-                margin-bottom: 10px;
-            }
+              margin-bottom: 10px; /* Espaciado entre filas */
+          }
 
-            td {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding-left: 50%;
-                position: relative;
-            }
+          td {
+              display: flex; /* Usar flexbox para las celdas */
+              justify-content: space-between; /* Espacio entre el encabezado y el valor */
+              padding: 10px; /* Espaciado interno */
+          }
 
         }
 /*Especificidad: 001*/

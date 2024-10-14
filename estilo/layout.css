@@ -130,18 +130,19 @@ td {
   text-align: center;    
 }
 @media (max-width: 465px) {
+            /*Especificidad: 001*/
             table, thead, tbody, th, td, tr {
                 display: block;
             }
-
-            tr {
-              margin-bottom: 10px; /* Espaciado entre filas */
+/*Especificidad: 001*/
+          tr {
+            margin-bottom: 10px;
           }
-
+/*Especificidad: 001*/
           td {
-              display: flex; /* Usar flexbox para las celdas */
-              justify-content: space-between; /* Espacio entre el encabezado y el valor */
-              padding: 10px; /* Espaciado interno */
+              display: flex;
+              justify-content: space-between; 
+              padding: 10px;
           }
 
         }

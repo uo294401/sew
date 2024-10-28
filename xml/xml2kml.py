@@ -1,56 +1,77 @@
+# 02020-KML.py
+# -*- coding: utf-8 -*-
+"""
+Crea archivos KML con puntos y líneas
+@version 1.0 17/Noviembre/2023
+"""
+
 import xml.etree.ElementTree as ET
-from reportlab.lib.pagesizes import letter
-from reportlab.pdfgen import canvas
 
-# Función para generar el archivo KML
-def generate_kml(xml_file, kml_file):
-    # Parsear el archivo XML
-    tree = ET.parse(xml_file)
+class Kml(object):
+    """
+    Genera archivo KML con puntos y líneas
+    """
+    def __init__(self):
+        """
+        Crea el elemento raíz y el espacio de nombres
+        """
+        self.raiz = ET.Element('kml', xmlns="http://www.opengis.net/kml/2.2")
+        self.doc = ET.SubElement(self.raiz, 'Document')
+
+    def addPlacemark(self, long, lat, alt, modoAltitud):
+        """
+        Añade un elemento <Placemark> con puntos <Point>
+        """
+        pm = ET.SubElement(self.doc, 'Placemark')
+        punto = ET.SubElement(pm, 'Point')
+        ET.SubElement(punto, 'coordinates').text = '\n{},{},{}\n'.format(long, lat, alt)
+        ET.SubElement(punto, 'altitudeMode').text = '\n' + modoAltitud + '\n'
+
+    def addLineString(self, nombre, extrude, tesela, listaCoordenadas, modoAltitud, color, ancho):
+        """
+        Añade un elemento <Placemark> con líneas <LineString>
+        """
+        ET.SubElement(self.doc, 'name').text = '\n' + nombre + '\n'
+        pm = ET.SubElement(self.doc, 'Placemark')
+        ls = ET.SubElement(pm, 'LineString')
+        ET.SubElement(ls, 'extrude').text = '\n' + extrude + '\n'
+        ET.SubElement(ls, 'tessellation').text = '\n' + tesela + '\n'
+        ET.SubElement(ls, 'coordinates').text = '\n' + listaCoordenadas + '\n'
+        ET.SubElement(ls, 'altitudeMode').text = '\n' + modoAltitud + '\n'
+
+        estilo = ET.SubElement(pm, 'Style')
+        linea = ET.SubElement(estilo, 'LineStyle')
+        ET.SubElement(linea, 'color').text = '\n' + color + '\n'
+        ET.SubElement(linea, 'width').text = '\n' + ancho + '\n'
+
+    def escribir(self, nombreArchivoKML):
+        """
+        Escribe el archivo KML con declaración y codificación
+        """
+        arbol = ET.ElementTree(self.raiz)
+        arbol.write(nombreArchivoKML, encoding='utf-8', xml_declaration=True)
+
+
+def main():
+    print(Kml.__doc__)
+    nombreKML = "circuito.kml"
+    nuevoKML = Kml()
+    namespaces = {'uni': 'http://www.uniovi.es'}
+
+    tree = ET.parse("circuitoEsquema.xml")
     root = tree.getroot()
+    coordenadasPaseo = ""
 
-    # Crear el archivo KML
-    with open(kml_file, 'w') as kml:
-        # Escribir el encabezado del KML
-        kml.write('<?xml version="1.0" encoding="UTF-8"?>\n')
-        kml.write('<kml xmlns="http://www.opengis.net/kml/2.2">\n')
-        kml.write('<Document>\n')
-        kml.write('<name>{}</name>\n'.format(root.get('nombre')))
-        
-        # Escribir las coordenadas
-        kml.write('<Placemark>\n')
-        kml.write('<name>{}</name>\n'.format(root.get('nombre')))
-        kml.write('<LineString>\n')
-        kml.write('<tessellate>1</tessellate>\n')
-        kml.write('<coordinates>\n')
+    for tramo in root.findall("uni:tramos/uni:tramo", namespaces):
+        longitud = tramo.attrib.get("longitud")
+        latitud = tramo.attrib.get("latitud")
+        altitud = tramo.attrib.get("altitud")
+        nuevoKML.addPlacemark(longitud, latitud, altitud, 'relativeToGround')
+        coordenadasPaseo += f"{longitud},{latitud},{altitud}\n"
 
-        # Extraer coordenadas del XML
-        for coord in root.findall('.//coordenada'):
-            lon = coord.get('longitud')
-            lat = coord.get('latitud')
-            kml.write(f'{lon},{lat},0\n')  # Añadiendo altitud como 0 para simplificar
+    nuevoKML.addLineString("MARINA BAY", "1", "1", coordenadasPaseo, 'relativeToGround', '#ff0000ff', "5")
+    nuevoKML.escribir(nombreKML)
+    print("Creado el archivo: ", nombreKML)
 
-        kml.write('</coordinates>\n')
-        kml.write('</LineString>\n')
-        kml.write('</Placemark>\n')
-        
-        # Escribir el epílogo del KML
-        kml.write('</Document>\n')
-        kml.write('</kml>\n')
-
-# Función para generar un PDF de la planimetría del circuito
-def generate_pdf(pdf_file, circuit_name):
-    c = canvas.Canvas(pdf_file, pagesize=letter)
-    c.drawString(100, 750, "Planimetría del Circuito: {}".format(circuit_name))
-    c.drawString(100, 730, "El archivo KML ha sido generado correctamente.")
-    c.save()
-
-# Archivos de entrada y salida
-xml_file = 'circuitoEsquema.xml'
-kml_file = 'circuito.kml'
-pdf_file = 'planimetria.pdf'
-
-# Generar KML y PDF
-generate_kml(xml_file, kml_file)
-generate_pdf(pdf_file, 'MARINA BAY')
-
-print("Archivos KML y PDF generados exitosamente.")
+if __name__ == "__main__":
+    main()

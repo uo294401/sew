@@ -25,6 +25,7 @@
         <coordenada longitud="103.864164" latitud="1.291695" altitud="4.16"></coordenada>
     </coordenadas>
     <tramos>
+        <tramo distancia="0.01" longitud="103.8641625705159" latitud="1.291692095299434" altitud="4.119413763245532" numeroSector="3"></tramo>
         <tramo distancia="289.63" longitud="103.8637738530413" latitud="1.294281669572479" altitud="3.888835173321012" numeroSector="1"></tramo>
         <tramo distancia="69.23" longitud="103.8631603759677" latitud="1.29438304626351" altitud="3.902496879933481" numeroSector="1"></tramo>
         <tramo distancia="65.91" longitud="103.8627546319357" latitud="1.294802638000904" altitud="3.635906857499207" numeroSector="1"></tramo>

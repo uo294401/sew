@@ -43,7 +43,7 @@ class Pais {
     }
 
     escribirCoordenadas() {
-        const { lat, lon, alt } = this.#coordenadasMeta; // Asegúrate de incluir 'alt' si lo necesitas
+        const { lat, lon, alt } = this.#coordenadasMeta; 
         document.write(`Coordenadas de la línea de meta: Latitud ${lat}, Longitud ${lon}, Altitud ${alt}`);
     }
 }

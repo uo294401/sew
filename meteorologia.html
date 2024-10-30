@@ -1,23 +1,20 @@
 <!DOCTYPE HTML>
-
 <html lang="es">
 <head>
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
     <title>F1Desktop-Meteorologia</title>
     <link rel="icon" href="multimedia/imágenes/favicon.ico" type="image/x-icon">
-    <meta name ="author" content ="Dario Cristobal Gonzalez" />
-    <meta name ="description" content ="Información sobre la meteorología en ese Gran Premio" />
-    <meta name ="keywords" content ="Temperatura, Humedad" />
-    <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Dario Cristobal Gonzalez" />
+    <meta name="description" content="Información sobre la meteorología en ese Gran Premio" />
+    <meta name="keywords" content="Temperatura, Humedad" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <script src="js/pais.js"></script> <!-- Referencia al archivo pais.js -->
 </head>
-   
 <body>
-    <!-- Datos con el contenidos que aparece en el navegador -->
     <header>
-        <!-- Datos con el contenidos que aparece en el navegador -->
         <h1><a href="index.html">F1 Desktop</a></h1>
         <nav>
             <ul>
@@ -34,6 +31,17 @@
         <p>Estas en: <a href="index.html">F1 Desktop</a> >> Meteorología</p>
     </header>
     <h2>Meteorología</h2>
+    <script>
+        "use strict";
+        const pais = new Pais("Singapur", "Singapur", 5917600);
+        pais.inicializarValores("Marina Bay", "República parlamentaria", { lat: 1.290449539261829, lon: 103.8643260229208, alt: 4.07576890888359 }, "Budismo");
+        
+        document.write(`<h3>Información del País: ${pais.obtenerNombre()}</h3>`);
+        document.write(`<p>Capital: ${pais.obtenerCapital()}</p>`);
+        document.write(`<div>${pais.obtenerInformacionSecundaria()}</div>`);
+        pais.escribirCoordenadas();
+    </script>
+    
     <p>En desarrollo</p>
 </body>
 </html>

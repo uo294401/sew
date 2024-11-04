@@ -4,7 +4,7 @@
 <head>
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
-    <title>F1Desktop-Juegos</title>
+    <title>F1Desktop-Juegos-Memoria</title>
     <link rel="icon" href="multimedia/imágenes/favicon.ico" type="image/x-icon">
     <meta name ="author" content ="Dario Cristobal Gonzalez" />
     <meta name ="description" content ="Juegos de la pagina web" />
@@ -12,6 +12,8 @@
     <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/memoria.css" />
+    <script src="js/memoria.js"></script> 
 </head>
    
 <body>
@@ -40,6 +42,15 @@
             <li><a href="semaforo.html">Semaforo</a></li>
         </ul>
     </nav>
-    <p>En desarrollo</p>
+    <section class="memoria">
+        <h3>Juego de Memoria</h3>
+        <section class="card-container"></section>
+        <script>
+            "use strict";
+            const memoria = new Memoria(false,false,null,null);
+            
+        </script>
+    </section>
+
 </body>
 </html>

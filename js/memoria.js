@@ -74,7 +74,9 @@ const json = {
         this.#lockBoard=lockBoard
         this.#firstCard=firstCard
         this.#secondCard=secondCard
+        this.shuffleElements()
         this.createElements()
+        this.addEventListeners()
     }
     shuffleElements(){
         const cartas= json.cartas;
@@ -110,22 +112,22 @@ const json = {
     createElements() {
       const container = document.querySelector('.card-container');
       json.cartas.forEach(card => {
-          const cardElement = document.createElement('article');
-          cardElement.classList.add('card');
-          cardElement.setAttribute('data-element', card.name);
-  
-          const h3 = document.createElement('h3');
-          h3.textContent = 'Tarjeta de memoria';
-          cardElement.appendChild(h3);
-  
-          const img = document.createElement('img');
-          img.src = card.logo;
-          img.alt = card.name;
-          cardElement.appendChild(img);
-  
-          container.appendChild(cardElement);
+        const cardElement = document.createElement('article');
+        cardElement.classList.add('card');
+        cardElement.setAttribute('data-element', card.name);
+        cardElement.dataset.state = card.dataState; 
+
+        const h3 = document.createElement('h3');
+        h3.textContent = 'Memory Card'; 
+        cardElement.appendChild(h3);
+
+        const img = document.createElement('img');
+        img.src = card.logo;
+        img.alt = card.name;
+        cardElement.appendChild(img);
+
+        container.appendChild(cardElement);
       });
-      this.addEventListeners(); 
   }
     addEventListeners() {
       const cards = json.cartas; 
@@ -134,10 +136,18 @@ const json = {
       });
     }
 
-    flipCard(memoriaInstance) {
-      if (memoriaInstance.#lockBoard) return; 
-      this.dataState = "revealed"; 
-      memoriaInstance.checkForMatch(); 
+    flipCard(game) {
+      if (this.dataState === "revealed") return;
+      if (game.#lockBoard) return; 
+      if (this === game.firstCard) return;
+      this.dataState = "flip"; 
+      if(!game.hasFlippedCard){
+        game.hasFlippedCard = true;
+        game.firstCard=this;
+      }else{
+        game.secondCard=this;
+        game.checkForMatch(this); 
+      }
     }
 }
   

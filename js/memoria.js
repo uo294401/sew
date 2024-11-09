@@ -5,62 +5,62 @@ const json = {
       {
         name: "Alpine",
         dataState: "hidden",
-        logo: "multimedia/imágenes/Alpine_F1_Team_2021_Logo"
+        logo: "multimedia/imágenes/Alpine_F1_Team_2021_Logo.svg"
       },
       {
         name: "Alpine",
         dataState: "hidden",
-        logo: "multimedia/imágenes/Alpine_F1_Team_2021_Logo"
+        logo: "multimedia/imágenes/Alpine_F1_Team_2021_Logo.svg"
       },
       {
         name: "Aston Martin",
         dataState: "hidden",
-        logo: "multimedia/imágenes/Aston_Martin_Aramco_Cognizant_F1"
+        logo: "multimedia/imágenes/Aston_Martin_Aramco_Cognizant_F1.svg"
       },
       {
         name: "Aston Martin",
         dataState: "hidden",
-        logo: "multimedia/imágenes/Aston_Martin_Aramco_Cognizant_F1"
+        logo: "multimedia/imágenes/Aston_Martin_Aramco_Cognizant_F1.svg"
       },
       {
         name: "McLaren",
         dataState: "hidden",
-        logo: "multimedia/imágenes/McLaren_Racing_logo"
+        logo: "multimedia/imágenes/McLaren_Racing_logo.svg"
       },
       {
         name: "McLaren",
         dataState: "hidden",
-        logo: "multimedia/imágenes/McLaren_Racing_logo"
+        logo: "multimedia/imágenes/McLaren_Racing_logo.svg"
       },
       {
         name: "Mercedes",
         dataState: "hidden",
-        logo: "multimedia/imágenes/Mercedes_AMG_Petronas_F1_Logo"
+        logo: "multimedia/imágenes/Mercedes_AMG_Petronas_F1_Logo.svg"
        },
       {
         name: "Mercedes",
         dataState: "hidden",
-        logo: "multimedia/imágenes/Mercedes_AMG_Petronas_F1_Logo"
+        logo: "multimedia/imágenes/Mercedes_AMG_Petronas_F1_Logo.svg"
       },
       {
         name: "Red Bull",
         dataState: "hidden",
-        logo: "multimedia/imágenes/Red_Bull_Racing_logo"
+        logo: "multimedia/imágenes/Red_Bull_Racing_logo.svg"
       },
       {
         name: "Red Bull",
         dataState: "hidden",
-        logo: "multimedia/imágenes/Red_Bull_Racing_logo"
+        logo: "multimedia/imágenes/Red_Bull_Racing_logo.svg"
       },
       {
         name: "Ferrari",
         dataState: "hidden",
-        logo: "multimedia/imágenes/Scuderia_Ferrari_Logo"
+        logo: "multimedia/imágenes/Scuderia_Ferrari_Logo.svg"
       },
       {
         name: "Ferrari",
         dataState: "hidden",
-        logo: "multimedia/imágenes/Scuderia_Ferrari_Logo"
+        logo: "multimedia/imágenes/Scuderia_Ferrari_Logo.svg"
       }
     ]
   };
@@ -90,9 +90,9 @@ const json = {
     unflipCards(){
         this.#lockBoard=true
         setTimeout(()=>{
-            this.#firstCard.dataState = "hidden";
-            this.#secondCard.dataState = "hidden";
-            this.resetBoard()
+          this.#firstCard.setAttribute('data-state', 'hidden');
+          this.#secondCard.setAttribute('data-state', 'hidden');
+          this.resetBoard()
         },2000);
     }
     resetBoard(){
@@ -102,12 +102,12 @@ const json = {
         this.#lockBoard=false
     }
     checkForMatch(){
-        this.#firstCard.name==this.#secondCard.name ? this.disableCards() : this.unflipCards();
+      this.#firstCard.getAttribute('data-element') === this.#secondCard.getAttribute('data-element') ? this.disableCards() : this.unflipCards();    
     }
     disableCards(){
-        this.#firstCard.dataState = "revealed";
-        this.#secondCard.dataState = "revealed";
-        this.resetBoard()
+      this.#firstCard.setAttribute('data-state', 'revealed');
+      this.#secondCard.setAttribute('data-state', 'revealed');
+      this.resetBoard()
     }
     createElements() {
       const container = document.querySelector('.card-container');
@@ -115,7 +115,7 @@ const json = {
         const cardElement = document.createElement('article');
         cardElement.classList.add('card');
         cardElement.setAttribute('data-element', card.name);
-        cardElement.dataset.state = card.dataState; 
+        cardElement.setAttribute('data-state', card.dataState);
 
         const h3 = document.createElement('h3');
         h3.textContent = 'Memory Card'; 
@@ -129,25 +129,28 @@ const json = {
         container.appendChild(cardElement);
       });
   }
-    addEventListeners() {
-      const cards = json.cartas; 
-      cards.forEach(card => {
+  addEventListeners() {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
         card.addEventListener('click', this.flipCard.bind(card, this)); 
-      });
-    }
+    });
+}
 
-    flipCard(game) {
-      if (this.dataState === "revealed") return;
-      if (game.#lockBoard) return; 
-      if (this === game.firstCard) return;
-      this.dataState = "flip"; 
-      if(!game.hasFlippedCard){
-        game.hasFlippedCard = true;
-        game.firstCard=this;
-      }else{
-        game.secondCard=this;
-        game.checkForMatch(this); 
-      }
-    }
+flipCard(game) {
+  if (this.getAttribute('data-state') === "revealed") return;
+  if (game.#lockBoard) return;
+  if (this === game.#firstCard) return;
+  
+  this.setAttribute('data-state', 'flip');
+
+  if (!game.#hasFlippedCard) {
+            game.#hasFlippedCard = true;
+            game.#firstCard = this;
+        } else {
+            game.#secondCard = this;
+            game.#lockBoard = true;
+            game.checkForMatch();
+        }
+}
 }
   

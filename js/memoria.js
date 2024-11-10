@@ -110,10 +110,9 @@ const json = {
       this.resetBoard()
     }
     createElements() {
-      const container = document.querySelector('.card-container');
+      const container = document.querySelector('section > section');
       json.cartas.forEach(card => {
         const cardElement = document.createElement('article');
-        cardElement.classList.add('card');
         cardElement.setAttribute('data-element', card.name);
         cardElement.setAttribute('data-state', card.dataState);
 
@@ -130,7 +129,7 @@ const json = {
       });
   }
   addEventListeners() {
-    const cards = document.querySelectorAll('.card');
+    const cards = document.querySelectorAll('section > section > article');
     cards.forEach(card => {
         card.addEventListener('click', this.flipCard.bind(card, this)); 
     });
@@ -153,4 +152,5 @@ flipCard(game) {
         }
 }
 }
+
   

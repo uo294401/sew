@@ -12,6 +12,8 @@
     <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/semaforo_grid.css" />
+    <script src="js/semaforo.js"></script>
 </head>
    
 <body>
@@ -40,6 +42,12 @@
             <li><a href="semaforo.html">Semaforo</a></li>
         </ul>
     </nav>
-    <p>En desarrollo</p>
+    <main></main>
+    <script>
+        "use strict";
+        document.addEventListener("DOMContentLoaded", () => {
+            new Semaforo();
+        });
+    </script>
 </body>
 </html>

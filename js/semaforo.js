@@ -15,38 +15,30 @@ class Semaforo{
 
     createStructure(){
         const mainElement= document.querySelector('main');
-
         const header = document.createElement('h1');
         header.textContent= 'Juego del Semáforo';
         mainElement.appendChild(header);
-
         for(let i=0; i<this.#lights;i++){
             const lightBlock=document.createElement('div');
             mainElement.appendChild(lightBlock);
         }
-
         const startButton=document.createElement('button');
-        startButton.textContent='Arrancar Semáforo';
+        startButton.textContent='Arranque';
         startButton.onclick = this.initSequence.bind(this);
         mainElement.appendChild(startButton);
-
         const reactionButton=document.createElement('button');
         reactionButton.textContent='Tiempo de reacción';
         reactionButton.disabled = true;
         reactionButton.onclick = this.stopReaction.bind(this);
         mainElement.appendChild(reactionButton);
-
-        const reactionTime = document.createElement('p');
         reactionTime.textContent = 'Tiempo de reacción: ';
         mainElement.appendChild(reactionTime);
     }
     initSequence(){
         const mainElement= document.querySelector('main');
         mainElement.classList.add('load');
-
         const startButton = mainElement.querySelector('button:nth-of-type(1)');
         startButton.disabled = true;
-
         setTimeout(() => {
             this.#unload_moment = new Date();
             this.endSequence();
@@ -56,24 +48,23 @@ class Semaforo{
         const mainElement = document.querySelector('main');
         mainElement.classList.remove('load');
         mainElement.classList.add('unload');
-    
         const reactionButton = mainElement.querySelector('button:nth-of-type(2)');
         reactionButton.disabled = false;
     }
     stopReaction() {
         this.#clic_moment = new Date();
-        const reactionTime = (this.#clic_moment - this.#unload_moment) / 1000;
+        const reactionTime = (this.#clic_moment - this.#unload_moment);
         const mainElement = document.querySelector('main');
-        
-        // Mostrar el tiempo de reacción
-        const reactionParagraph = mainElement.querySelector('p');
-        reactionParagraph.textContent = `Tiempo de reacción: ${reactionTime.toFixed(3)} segundos`;
-    
-        // Reiniciar botones y clases
+        let reactionTimeP = mainElement.querySelector('p'); 
+        if (!reactionTimeP) {
+            reactionTimeP = document.createElement('p');
+            mainElement.appendChild(reactionTimeP);
+        }
+        reactionTimeP.textContent = `Tiempo de reacción: ${reactionTime} milisegundos`;
+        mainElement.classList.remove('unload','load');
         const startButton = mainElement.querySelector('button:nth-of-type(1)');
         const reactionButton = mainElement.querySelector('button:nth-of-type(2)');
-        startButton.disabled = false;
         reactionButton.disabled = true;
-        mainElement.classList.remove('load', 'unload');
+        startButton.disabled = false;
     }
 }

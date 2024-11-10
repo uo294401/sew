@@ -22,7 +22,6 @@ section > section {
     }
 }
 
-/* Estilos para cada carta individual */
 section > section > article {
     width: 100%;
     height: 100%;
@@ -38,7 +37,6 @@ section > section > article {
     box-shadow: 1px 1px 1px rgba(0,0,0,.3);
 }
 
-/* Estados de la carta */
 section > section > article[data-state="flip"] {
     transform: rotateY(180deg);
 }

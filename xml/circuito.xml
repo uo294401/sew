@@ -15,9 +15,9 @@
         <referencia link="https://soymotor.com/f1/gp-de-singapur-f1-2024"></referencia>
     </bibliografia>
     <imagenes>
-        <imagen link="General.jpg"></imagen>
-        <imagen link="RectaSalida.jpg"></imagen>
-        <imagen link="parrillaSalida.jpg"></imagen>
+        <imagen link="../multimedia/imágenes/General.jpg"></imagen>
+        <imagen link="../multimedia/imágenes/RectaSalida.jpg"></imagen>
+        <imagen link="../multimedia/imágenes/parrillaSalida.jpg"></imagen>
     </imagenes>
     <coordenadas>
         <coordenada longitud="103.864164" latitud="1.291695" altitud="4.16 m"></coordenada>

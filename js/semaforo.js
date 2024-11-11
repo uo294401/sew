@@ -27,11 +27,10 @@ class Semaforo{
         startButton.onclick = this.initSequence.bind(this);
         mainElement.appendChild(startButton);
         const reactionButton=document.createElement('button');
-        reactionButton.textContent='Tiempo de reacción';
+        reactionButton.textContent='Reacción';
         reactionButton.disabled = true;
         reactionButton.onclick = this.stopReaction.bind(this);
         mainElement.appendChild(reactionButton);
-        reactionTime.textContent = 'Tiempo de reacción: ';
         mainElement.appendChild(reactionTime);
     }
     initSequence(){

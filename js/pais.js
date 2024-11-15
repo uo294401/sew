@@ -46,4 +46,35 @@ class Pais {
         const { lat, lon, alt } = this.#coordenadasMeta; 
         document.write(`Coordenadas de la línea de meta: Latitud ${lat}, Longitud ${lon}, Altitud ${alt}`);
     }
+
+    obtenerPronostico(circuito) {
+        const apiKey = 'TU_API_KEY_OPENWEATHER'; // Reemplazar con la API Key de OpenWeatherMap
+        const url = `https://api.openweathermap.org/data/2.5/forecast?q=${circuito}&lang=es&units=metric&appid=${apiKey}`;
+      
+        $.ajax({
+          url: url,
+          method: 'GET',
+          success: (data) => {
+            mostrarPronostico(data);
+          },
+          error: (error) => {
+            console.error("Error al obtener el pronóstico:", error);
+          }
+        });
+      }
+      
+    mostrarPronostico(data) {
+        data.list.slice(0, 5).forEach((dia) => {
+          const pronosticoHTML = `
+            <article>
+              <p>Temp Máx: ${dia.main.temp_max}°C</p>
+              <p>Temp Mín: ${dia.main.temp_min}°C</p>
+              <p>Humedad: ${dia.main.humidity}%</p>
+              <img src="http://openweathermap.org/img/wn/${dia.weather[0].icon}.png" alt="${dia.weather[0].description}">
+              <p>Lluvia: ${dia.rain ? dia.rain['3h'] : 0} mm</p>
+            </article>
+          `;
+          $('#pronostico').append(pronosticoHTML);
+        });
+      }
 }

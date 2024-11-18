@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
     <script src="js/pais.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <header>
@@ -28,8 +29,8 @@
                 <li> <a href="juegos.html">Juegos</a> </li>
             </ul>
         </nav>
-        <p>Estas en: <a href="index.html">F1 Desktop</a> >> Meteorología</p>
     </header>
+    <header><p>Estas en: <a href="index.html">F1 Desktop</a> >> Meteorología</p></header>
     <h2>Meteorología</h2>
     <script>
         "use strict";
@@ -40,6 +41,7 @@
         document.write(`<p>Capital: ${pais.obtenerCapital()}</p>`);
         document.write(`<p>${pais.obtenerInformacionSecundaria()}</p>`);
         pais.escribirCoordenadas();
+        pais.cargarDatos();
     </script>
     
     <p>En desarrollo</p>

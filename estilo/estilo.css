@@ -27,9 +27,8 @@ header a {
 header p {
   color: #f9d135;
   text-decoration: none;
-  font-size: 0.75rem; 
+  font-size: 0.9rem; 
 }
-
 /* Especificidad: 001 */
 h1 {
   color: #FFF675B4;    
@@ -132,8 +131,4 @@ td {
   background-color: #f2f2f2;        
 }
 
-/* Especificidad: 011 */
-a.active {
-  color: #FFFFFF; 
-}
 

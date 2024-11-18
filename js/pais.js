@@ -47,34 +47,103 @@ class Pais {
         document.write(`Coordenadas de la línea de meta: Latitud ${lat}, Longitud ${lon}, Altitud ${alt}`);
     }
 
-    obtenerPronostico(circuito) {
-        const apiKey = 'TU_API_KEY_OPENWEATHER'; // Reemplazar con la API Key de OpenWeatherMap
-        const url = `https://api.openweathermap.org/data/2.5/forecast?q=${circuito}&lang=es&units=metric&appid=${apiKey}`;
-      
-        $.ajax({
+    cargarDatos() {
+      const apiKey = '361b23232f14213c128024345d952c1f'; // Tu API Key
+      const lat = this.#coordenadasMeta.lat; // Coordenada de latitud
+      const lon = this.#coordenadasMeta.lon; // Coordenada de longitud
+      const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&mode=xml&units=metric&lang=es`;
+  
+      $.ajax({
+          dataType: "xml", // Solicitar datos en formato XML
           url: url,
           method: 'GET',
-          success: (data) => {
-            mostrarPronostico(data);
+          success: function(datos) {
+              console.log('Datos recibidos:', datos); // Depuración
+  
+              let datosPorDia = {};
+  
+              // Iterar a través de los intervalos de 3 horas
+              $(datos).find('time').each(function() {
+                  const fecha = $(this).attr('from');  // Fecha en formato ISO (ej: 2024-11-18T00:00:00)
+                  const tempMax = parseFloat($(this).find('temperature').attr('max')); // Temperatura máxima
+                  const tempMin = parseFloat($(this).find('temperature').attr('min')); // Temperatura mínima
+                  const humedad = parseFloat($(this).find('humidity').attr('value')); // Humedad
+                  const precipitacion = parseFloat($(this).find('precipitation').attr('value')) || 0; // Precipitación
+                  const icono = $(this).find('weather').attr('icon'); // Icono del clima
+  
+                  // Convertir la fecha ISO en un formato más sencillo de usar (solo día)
+                  const fechaObj = new Date(fecha);
+                  const dia = `${fechaObj.getDate()}/${fechaObj.getMonth() + 1}/${fechaObj.getFullYear()}`;
+  
+                  // Si aún no existe ese día en el objeto, lo inicializamos
+                  if (!datosPorDia[dia]) {
+                      datosPorDia[dia] = {
+                          temperaturasMax: [],
+                          temperaturasMin: [],
+                          humedades: [],
+                          precipitaciones: [],
+                          iconos: []
+                      };
+                  }
+  
+                  // Almacenamos los valores correspondientes
+                  datosPorDia[dia].temperaturasMax.push(tempMax);
+                  datosPorDia[dia].temperaturasMin.push(tempMin);
+                  datosPorDia[dia].humedades.push(humedad);
+                  datosPorDia[dia].precipitaciones.push(precipitacion);
+                  datosPorDia[dia].iconos.push(icono);
+              });
+  
+              console.log('Datos agrupados por día:', datosPorDia); // Depuración
+  
+              // Ahora, para cada día, calculamos los promedios y mostramos la información
+              for (let dia in datosPorDia) {
+                  // Calculamos la temperatura máxima y mínima real de todo el día (máximo y mínimo de los intervalos)
+                  const tempMaxDia = Math.max(...datosPorDia[dia].temperaturasMax);
+                  const tempMinDia = Math.min(...datosPorDia[dia].temperaturasMin);
+                  const promedioHumedad = promedio(datosPorDia[dia].humedades);
+                  const precipitacionTotal = suma(datosPorDia[dia].precipitaciones);
+                  const iconoMasFrecuente = obtenerIconoMasFrecuente(datosPorDia[dia].iconos);
+  
+                  // Crear HTML para cada día
+                  let pronosticoHTML = `
+                      <article>
+                          <h3>Pronóstico para el ${dia}</h3>
+                          <p><strong>Temperatura máxima:</strong> ${tempMaxDia.toFixed(2)} °C</p>
+                          <p><strong>Temperatura mínima:</strong> ${tempMinDia.toFixed(2)} °C</p>
+                          <p><strong>Humedad promedio:</strong> ${promedioHumedad.toFixed(2)} %</p>
+                          <p><strong>Lluvia total:</strong> ${precipitacionTotal.toFixed(2)} mm</p>
+                          <p><img src="http://openweathermap.org/img/wn/${iconoMasFrecuente}.png" alt="Icono del clima" /></p>
+                      </article>
+                  `;
+                  // Mostrar la información en el cuerpo del documento
+                  $('body').append(pronosticoHTML);
+              }
           },
-          error: (error) => {
-            console.error("Error al obtener el pronóstico:", error);
+          error: function() {
+              $('body').append('<p>No se pudo obtener los datos del clima.</p>');
           }
-        });
-      }
-      
-    mostrarPronostico(data) {
-        data.list.slice(0, 5).forEach((dia) => {
-          const pronosticoHTML = `
-            <article>
-              <p>Temp Máx: ${dia.main.temp_max}°C</p>
-              <p>Temp Mín: ${dia.main.temp_min}°C</p>
-              <p>Humedad: ${dia.main.humidity}%</p>
-              <img src="http://openweathermap.org/img/wn/${dia.weather[0].icon}.png" alt="${dia.weather[0].description}">
-              <p>Lluvia: ${dia.rain ? dia.rain['3h'] : 0} mm</p>
-            </article>
-          `;
-          $('#pronostico').append(pronosticoHTML);
-        });
-      }
+      });
+  }
+  
+}
+  // Función para calcular el promedio de un array de números
+  function promedio(arr) {
+    const sumaTotal = arr.reduce((acc, curr) => acc + curr, 0);
+    return sumaTotal / arr.length;
+}
+
+// Función para calcular la suma total de un array de números (precipitaciones)
+function suma(arr) {
+    return arr.reduce((acc, curr) => acc + curr, 0);
+}
+
+// Función para obtener el icono más frecuente de los intervalos
+function obtenerIconoMasFrecuente(iconos) {
+    const iconoCount = {};
+    iconos.forEach(icono => {
+        iconoCount[icono] = (iconoCount[icono] || 0) + 1;
+    });
+    // Encontrar el icono con el mayor número de repeticiones
+    return Object.keys(iconoCount).reduce((a, b) => iconoCount[a] > iconoCount[b] ? a : b);
 }

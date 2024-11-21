@@ -55,15 +55,49 @@ class Semaforo{
         const reactionTime = (this.#clic_moment - this.#unload_moment);
         const mainElement = document.querySelector('main');
         let reactionTimeP = mainElement.querySelector('p'); 
+        
         if (!reactionTimeP) {
             reactionTimeP = document.createElement('p');
             mainElement.appendChild(reactionTimeP);
         }
-        reactionTimeP.textContent = `Tiempo de reacción: ${reactionTime} milisegundos`;
-        mainElement.classList.remove('unload','load');
+        reactionTimeP.textContent = `Tiempo de reacción: ${(reactionTime / 1000).toFixed(3)} segundos`;  // Mostrar en segundos
+    
+        // Restaurar el estado de los botones
+        mainElement.classList.remove('unload', 'load');
         const startButton = mainElement.querySelector('button:nth-of-type(1)');
         const reactionButton = mainElement.querySelector('button:nth-of-type(2)');
         reactionButton.disabled = true;
         startButton.disabled = false;
+    
+        // Crear el formulario para registrar el récord
+        this.createRecordForm();
+    }
+    createRecordForm(){
+        const mainElement = document.querySelector('main');
+
+        // Crear el formulario
+        const formHtml = `
+            <form id="recordForm" action="procesarFormulario.php" method="POST">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required><br>
+    
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" id="apellidos" name="apellidos" required><br>
+    
+                <label for="nivel">Nivel:</label>
+                <input type="text" id="nivel" name="nivel" value="${this.#difficulty}" readonly><br>
+    
+                <label for="tiempo">Tiempo de reacción (segundos):</label>
+                <input type="text" id="tiempo" name="tiempo" value="${(this.#clic_moment - this.#unload_moment) / 1000}" readonly><br>
+    
+                <input type="submit" value="Guardar Record">
+            </form>
+        `;
+    
+        // Añadir el formulario al contenedor principal (debajo del semáforo)
+        const recordContainer = document.createElement('div');
+        recordContainer.id = 'record-container';
+        recordContainer.innerHTML = formHtml;
+        mainElement.appendChild(recordContainer);
     }
 }

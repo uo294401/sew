@@ -1,0 +1,67 @@
+class Record {
+
+    protected $server;
+    protected $user;
+    protected $pass;
+    protected $dbname;
+    
+    public function __construct(){
+        $this->server = "localhost";
+        $this->user = "DBUSER2024";
+        $this->pass = "DBPSWD2024";
+        $this->dbname = "records";
+    }
+}
+<!DOCTYPE HTML>
+
+<html lang="es">
+<head>
+    <!-- Datos que describen el documento -->
+    <meta charset="UTF-8" />
+    <title>F1Desktop-Juegos</title>
+    <link rel="icon" href="multimedia/imágenes/favicon.ico" type="image/x-icon">
+    <meta name ="author" content ="Dario Cristobal Gonzalez" />
+    <meta name ="description" content ="Juegos de la pagina web" />
+    <meta name ="keywords" content ="" />
+    <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/semaforo_grid.css" />
+    <script src="js/semaforo.js"></script>
+</head>
+   
+<body>
+    <!-- Datos con el contenidos que aparece en el navegador -->
+    <header>
+        <!-- Datos con el contenidos que aparece en el navegador -->
+        <h1><a href="index.html">F1 Desktop</a></h1>
+        <nav>
+            <ul>
+                <li> <a href="index.html">Inicio</a> </li>
+                <li> <a href="piloto.html">Piloto</a> </li>
+                <li> <a href="noticias.html">Noticias</a> </li>
+                <li> <a href="calendario.html">Calendario</a> </li>
+                <li> <a href="meteorologia.html">Meteorologia</a> </li>
+                <li> <a href="circuito.html">Circuito</a> </li>
+                <li> <a href="viajes.html">Viajes</a> </li>
+                <li> <a class="active" href="juegos.html">Juegos</a> </li>
+            </ul>
+        </nav>
+    </header>
+    <header><p>Estas en: <a href="index.html">F1 Desktop</a> >> <a href="juegos.html"></a> Juegos >> Semaforo</p></header>
+    <h2>Juegos</h2>
+    <nav>
+        <ul>
+            <li><a href="memoria.html">Memoria</a></li>
+            <li><a href="semaforo.html">Semaforo</a></li>
+        </ul>
+    </nav>
+    <main></main>
+    <script>
+        "use strict";
+        document.addEventListener("DOMContentLoaded", () => {
+            new Semaforo();
+        });
+    </script>
+</body>
+</html>

@@ -72,6 +72,7 @@ class Semaforo{
         // Crear el formulario para registrar el récord
         this.createRecordForm();
     }
+    /*
     createRecordForm(){
         const mainElement = document.querySelector('main');
 
@@ -100,4 +101,5 @@ class Semaforo{
         recordContainer.innerHTML = formHtml;
         mainElement.appendChild(recordContainer);
     }
+        */
 }

@@ -1,5 +1,4 @@
 <!DOCTYPE HTML>
-
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
@@ -11,9 +10,10 @@
     <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/article_elements.css" />
     <script src="js/noticias.js"></script>
 </head>
-   
+
 <body>
     <header>
         <h1><a href="index.html">F1 Desktop</a></h1>
@@ -31,7 +31,23 @@
         </nav>
     </header>
     <header><p>Estas en: <a href="index.html">F1 Desktop</a> >> Noticias</p></header>
+    
     <h2>Noticias</h2>
-    <p>En desarrollo</p>
+    
+    <p>Selecciona un archivo de texto:</p>
+    <input type="file" onchange="noticias.readInputFile(this)" />
+    
+    <p>Añade una noticia:<br>
+    Título: <input type="text" oninput="window.titulo = this.value"><br>
+    Autor: <input type="text" oninput="window.autor = this.value"><br>
+    Texto: <input type="text" oninput="window.contenido = this.value">
+    </p>
+    <button onclick="noticias.agregarNoticiaManual(window.titulo, window.autor, window.contenido)">Añadir</button>
+    
+    <section></section>
+    
+    <script>
+        const noticias = new Noticias();
+    </script>
 </body>
 </html>

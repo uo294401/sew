@@ -12,6 +12,8 @@
     <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6j4mF6blrc4kZ54S6vYZ2_FpMY9VzyRU&callback=initMap" ></script>
+    <script src="js/viajes.js"></script>
 </head>
    
 <body>
@@ -34,6 +36,18 @@
     </header>
     <header><p>Estas en: <a href="index.html">F1 Desktop</a> >> Viajes</p></header>
     <h2>Viajes</h2>
-    <p>En desarrollo</p>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            window.initMap = () => {
+                const geo = new Geolocalización();
+            };
+        });	
+    </script>
+    <main>
+    <h3>Mapa estático</h3>
+    <section></section>
+    <h3>Mapa dinámico</h3>
+    <div></div>
+    </main>
 </body>
 </html>

@@ -4,22 +4,20 @@
 <head>
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
-    <title>F1Desktop-Juegos-Memoria</title>
+    <title>F1Desktop-Juegos-Campeones F1</title>
     <link rel="icon" href="multimedia/imágenes/favicon.ico" type="image/x-icon">
     <meta name ="author" content ="Dario Cristobal Gonzalez" />
-    <meta name ="description" content ="Juegos de la pagina web" />
+    <meta name ="description" content ="Pruebas de distintas apis" />
     <meta name ="keywords" content ="" />
     <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
-    <link rel="stylesheet" type="text/css" href="estilo/memoria.css" />
-    <script src="js/memoria.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/api.js" defer></script> 
 </head>
    
 <body>
-    <!-- Datos con el contenidos que aparece en el navegador -->
     <header>
-        <!-- Datos con el contenidos que aparece en el navegador -->
         <h1><a href="index.html">F1 Desktop</a></h1>
         <nav>
             <ul>
@@ -43,14 +41,20 @@
             <li><a href="api.html">Campeones F1</a></li>
         </ul>
     </nav>
+    <h2>Campeones F1</h2>
     <section>
-        <h3>Juego de Memoria</h3>
-        <section> </section>
-        <script>
-            "use strict";
-            new Memoria(false, false, null, null);
-        </script>
+        <input type="range" min="2000" max="2023" value="2023">
+        <p>Año seleccionado: <span>2023</span></p>
     </section>
+    <article>
+        <h3>Max Verstappen</h3>
+        <h4>Red Bull Racing</h4>
+        <p>Puntos: 454</p>
+    </article>
+    <svg></svg>
+    <button>Activar modo Pantalla Completa</button>
+    
+
 
 </body>
 </html>

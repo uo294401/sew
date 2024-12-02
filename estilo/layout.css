@@ -180,3 +180,50 @@ img {
   height: auto;      
   max-width: 100%;   
 }
+/* Especificidad: 002 */
+section > img {
+  width: 100%;          
+  height: auto;          
+  max-width: 100%;      
+  display: block;        
+  margin: 0 auto;       
+}
+/* Especificidad: 001 */
+svg{
+  width: 100%; 
+  height: 40vh;
+}
+/* Especificidad: 011 */
+body:fullscreen {
+  margin: 0; 
+  padding: 0;
+  display: block;
+}
+/* Especificidad: 001 */
+input {
+  width: 80%; 
+  margin: 1vh 0; 
+}
+
+/* Especificidad: 001 */
+svg {
+  margin: 2vh auto; 
+  width: 90%; 
+  height: 25vh; 
+}
+/* Especificidad: 001 */
+button {
+  font-size: 1em; 
+  padding: 0.5em 1em; 
+  margin-top: 1vh; 
+  border-radius: 0.5em; 
+  cursor: pointer;
+  display: block; 
+  margin-left: auto; 
+  margin-right: 2%;
+}
+main > div {  
+  height:400px; 
+  width:100%; 
+}
+

@@ -17,6 +17,7 @@ main h1 {
 
 main div {
     width: 100%;
+    height: auto;
     aspect-ratio: 1;
     background-color: #0007;
     border: 0.6vh solid #000;

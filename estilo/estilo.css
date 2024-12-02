@@ -131,4 +131,19 @@ td {
   background-color: #f2f2f2;        
 }
 
+/* Especificidad: 010 */
+:fullscreen {
+  background-color: inherit; 
+  color: inherit;          
+}
 
+/* Especificidad: 001 */
+button {
+  background-color: #b00000; 
+  color: #f9d135;
+}
+/* Especificidad: 011 */
+
+button:hover {
+  background-color: rgba(179, 0, 0, 0.644);
+}

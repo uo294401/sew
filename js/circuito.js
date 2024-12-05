@@ -16,85 +16,105 @@ $(document).ready(function() {
                 const ns = "http://www.uniovi.es";
   
                 // Acceder al nodo <circuito> con el espacio de nombres
+                
                 const circuito = xmlDoc.getElementsByTagNameNS(ns, 'circuito')[0];
                 if (circuito) {
                     // Mostrar los atributos del nodo "circuito"
                     const attrs = circuito.attributes;
                     for (let i = 0; i < attrs.length; i++) {
-                        outputHtml += `<li><strong>${attrs[i].nodeName}</strong>: ${attrs[i].nodeValue}</li>`;
+                        if(attrs[i].nodeName!= "xmlns" && attrs[i].nodeName != "xmlns:xsi" && attrs[i].nodeName != "xsi:schemaLocation"){
+                                if(attrs[i].nodeName=="nombre"){
+                                    outputHtml += `<h3>${attrs[i].nodeValue}</h3>`;
+                                    outputHtml +="<fieldset>"
+                                }else{
+                                    outputHtml += `<p><label><strong>${attrs[i].nodeName}</strong>: ${attrs[i].nodeValue}</label></p>`;
+                                }
+                            }
                     }
+                    outputHtml +="</fieldset>"
                 }
   
-                // Acceder a los nodos hijos como <bibliografia>, <imagenes>, etc.
                 const bibliografia = xmlDoc.getElementsByTagNameNS(ns, 'bibliografia');
+                outputHtml+="<h4>Páginas web relacionadas con el circuito:</h4>";
+                outputHtml+="<ul>"
                 if (bibliografia.length > 0) {
                     const referencias = bibliografia[0].getElementsByTagNameNS(ns, 'referencia');
                     $(referencias).each(function() {
                         const link = $(this).attr('link');
-                        outputHtml += `<li><strong>Referencia</strong>: <a href="${link}" target="_blank">${link}</a></li>`;
+                        outputHtml += `<li>: <a href="${link}" target="_blank">${link}</a></li>`;
                     });
                 }
+                outputHtml+="</ul>"
   
                 const imagenes = xmlDoc.getElementsByTagNameNS(ns, 'imagenes');
+                outputHtml+="<h4>Imágenes</h4>";
                 if (imagenes.length > 0) {
                     const imagenList = imagenes[0].getElementsByTagNameNS(ns, 'imagen');
                     $(imagenList).each(function() {
                     const link = $(this).attr('link');
-                    outputHtml += `<li><strong>Imagen</strong>: <img src="${link}" alt="Imagen"/></li>`;
+                    outputHtml += `<img src="${link}" alt="Imagen"/>`;
                     });
                 }
   
                 const coordenadas = xmlDoc.getElementsByTagNameNS(ns, 'coordenadas');
+                outputHtml+="<h4>Coordenadas de la parrilla de salida del circuito:</h4>";
                 if (coordenadas.length > 0) {
                     const coordenadaList = coordenadas[0].getElementsByTagNameNS(ns, 'coordenada');
                     $(coordenadaList).each(function() {
                         const longitud = $(this).attr('longitud');
                         const latitud = $(this).attr('latitud');
                         const altitud = $(this).attr('altitud');
-                        outputHtml += `<li><strong>Coordenada</strong>: Longitud: ${longitud}, Latitud: ${latitud}, Altitud: ${altitud}</li>`;
+                        outputHtml += `<p> Longitud: ${longitud}, Latitud: ${latitud}, Altitud: ${altitud}</p>`;
                     });
                 }
   
-                // Mostrar los tramos
                 const tramos = xmlDoc.getElementsByTagNameNS(ns, 'tramo');
+                outputHtml+="<h4>Tramos del circuito:</h4>";
+                outputHtml+="<ol>"
                 $(tramos).each(function() {
                     const distancia = $(this).attr('distancia');
                     const longitud = $(this).attr('longitud');
                     const latitud = $(this).attr('latitud');
                     const altitud = $(this).attr('altitud');
                     const numeroSector = $(this).attr('numeroSector');
-                    outputHtml += `<li><strong>Tramo</strong>: Distancia: ${distancia}, Longitud: ${longitud}, Latitud: ${latitud}, Altitud: ${altitud}, Sector: ${numeroSector}</li>`;
+                    outputHtml += `<li>Distancia: ${distancia}, Longitud: ${longitud}, Latitud: ${latitud}, Altitud: ${altitud}, Sector: ${numeroSector}</li>`;
                 });
-  
-                outputHtml += "</ul>";
+
+                outputHtml += "</ol>";
                 outputXml.html(outputHtml);
             };
             reader.readAsText(file);
-        } else {
-            alert("Por favor, selecciona un archivo XML válido.");
-        }
+        } 
     });
   
-    // Procesar archivo KML
-    $('input[type="file"]').eq(1).on('change', function(event) {
+    $('input[type="file"]').eq(1).on('change', function (event) {
         const file = event.target.files[0];
-        const mapDiv = $('div').eq(0); // Primer div
         if (file) {
             const reader = new FileReader();
-            reader.onload = function(e) {
-                const map = new google.maps.Map(mapDiv[0], {
-                    center: { lat: 0, lng: 0 },
-                    zoom: 2,
-                });
-                const kmlLayer = new google.maps.KmlLayer({
-                    url: e.target.result,
-                    map: map,
-                });
+            reader.onload = function (e) {
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(e.target.result, "application/xml");
+    
+                // Obtener la primera coordenada del archivo KML
+                const firstCoordinates = xmlDoc.querySelector("coordinates");
+                if (firstCoordinates) {
+                    const coordsText = firstCoordinates.textContent.trim();
+                    const [lng, lat] = coordsText.split(",").map(Number); 
+                    const mapaGeoposicionado = new google.maps.Map(document.querySelector("main > div"), {
+                        zoom: 14,
+                        center: { lat: lat, lng: lng },
+                        mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    });
+    
+                    // Renderizar el archivo KML como una capa (requiere URL pública)
+                    const kmlLayer = new google.maps.KmlLayer({
+                        url: e.target.result,
+                        map: mapaGeoposicionado,
+                    });
+                } 
             };
-            reader.readAsDataURL(file);
-        } else {
-            alert("Por favor, selecciona un archivo KML válido.");
-        }
+            reader.readAsText(file);
+        } 
     });
   
     // Procesar archivo SVG

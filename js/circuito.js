@@ -2,7 +2,7 @@ $(document).ready(function() {
     // Procesar archivo XML
     $('input[type="file"]').eq(0).on('change', function(event) {
         const file = event.target.files[0];
-        const outputXml = $('section').eq(0); // Primera sección
+        const outputXml = $('section').eq(0); 
         if (file && file.type === "text/xml") {
             const reader = new FileReader();
             reader.onload = function(e) {

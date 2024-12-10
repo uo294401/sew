@@ -22,7 +22,31 @@ class Pais {
         this.#coordenadasMeta = coordenadasMeta;
         this.#religionMayoritaria = religionMayoritaria;
     }
+    generarContenidoDinamico() {
+        const tituloPais = document.createElement("h3");
+        tituloPais.textContent = `Información del País: ${this.#nombre}`;
+        document.body.appendChild(tituloPais);
 
+        const capitalPais = document.createElement("p");
+        capitalPais.textContent = `Capital: ${this.#capital}`;
+        document.body.appendChild(capitalPais);
+
+        const infoSecundaria = document.createElement("ul");
+        infoSecundaria.innerHTML = `
+            <li>Circuito de F1: ${this.#circuitoF1}</li>
+            <li>Población: ${this.#poblacion}</li>
+            <li>Forma de Gobierno: ${this.#formaGobierno}</li>
+            <li>Religión Mayoritaria: ${this.#religionMayoritaria}</li>
+        `;
+        document.body.appendChild(infoSecundaria);
+
+        const { lat, lon, alt } = this.#coordenadasMeta;
+        const coordenadas = document.createElement("p");
+        coordenadas.textContent = `Coordenadas de la línea de meta: Latitud ${lat}, Longitud ${lon}, Altitud ${alt}`;
+        document.body.appendChild(coordenadas);
+
+        this.cargarDatos();
+    }
     obtenerNombre() {
         return this.#nombre;
     }
@@ -44,7 +68,9 @@ class Pais {
 
     escribirCoordenadas() {
         const { lat, lon, alt } = this.#coordenadasMeta; 
-        document.write(`Coordenadas de la línea de meta: Latitud ${lat}, Longitud ${lon}, Altitud ${alt}`);
+        const pCoordenadas = document.createElement('p');
+        pCoordenadas.textContent = `Coordenadas de la línea de meta: Latitud ${lat}, Longitud ${lon}, Altitud ${alt}`;
+        document.body.appendChild(pCoordenadas);
     }
 
     cargarDatos() {
@@ -58,7 +84,6 @@ class Pais {
         url: url,
         method: 'GET',
         success: function(datos) {
-            console.log('Datos recibidos:', datos); 
     
             let datosPorDia = {};
     
@@ -104,7 +129,7 @@ class Pais {
                         <p><strong>Temperatura mínima:</strong> ${tempMinDia.toFixed(2)} °C</p>
                         <p><strong>Humedad promedio:</strong> ${promedioHumedad.toFixed(2)} %</p>
                         <p><strong>Lluvia total:</strong> ${precipitacionTotal.toFixed(2)} mm</p>
-                        <p><img src="http://openweathermap.org/img/wn/${iconoMasFrecuente}@2x.png" alt="Icono del clima" /></p>
+                        <p><img src="http://openweathermap.org/img/wn/${iconoMasFrecuente}@2x.png" alt="Icono del clima" width="50" height="50"/></p>
                     </article>
                 `;
                 $('body').append(pronosticoHTML);

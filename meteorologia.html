@@ -1,7 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="es">
 <head>
-    <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
     <title>F1Desktop-Meteorologia</title>
     <link rel="icon" href="multimedia/imágenes/favicon.ico" type="image/x-icon">
@@ -26,7 +25,7 @@
                 <li> <a href="calendario.html">Calendario</a> </li>
                 <li> <a class="active" href="meteorologia.html">Meteorologia</a> </li>
                 <li> <a href="circuito.html">Circuito</a> </li>
-                <li> <a href="viajes.html">Viajes</a> </li>
+                <li> <a href="viajes.php">Viajes</a> </li>
                 <li> <a href="juegos.html">Juegos</a> </li>
             </ul>
         </nav>
@@ -38,11 +37,7 @@
         const pais = new Pais("Singapur", "Singapur", 5917600);
         pais.inicializarValores("Marina Bay", "República parlamentaria", { lat: 1.290449539261829, lon: 103.8643260229208, alt: 4.07576890888359 }, "Budismo");
         
-        document.write(`<h3>Información del País: ${pais.obtenerNombre()}</h3>`);
-        document.write(`<p>Capital: ${pais.obtenerCapital()}</p>`);
-        document.write(`<p>${pais.obtenerInformacionSecundaria()}</p>`);
-        pais.escribirCoordenadas();
-        pais.cargarDatos();
+        pais.generarContenidoDinamico();
     </script>
 </body>
 </html>

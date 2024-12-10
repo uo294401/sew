@@ -80,6 +80,31 @@ class Geolocalización {
         });
     }
 } 
+let indiceActual = 0;
+
+function moverCarrusel(direccion) {
+    const $carrusel = $("figure"); 
+    const $imagenes = $carrusel.find("img");
+    const anchoImagen = $imagenes.first().outerWidth(); 
+    const totalImagenes = 10;
+
+    indiceActual += direccion;
+
+    if (indiceActual < 0) {
+        indiceActual = totalImagenes - 1;
+    } else if (indiceActual >= totalImagenes) {
+        indiceActual = 0;
+    }
+
+    const desplazamiento = -indiceActual * anchoImagen;
+
+    $carrusel.css("transform", `translateX(${desplazamiento}px)`);
+    $carrusel.css("transition", "transform 0.5s ease-in-out");
+}
+
+
+
+
 
 
 

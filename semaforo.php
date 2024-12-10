@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <li><a href="calendario.html">Calendario</a></li>
                 <li><a href="meteorologia.html">Meteorologia</a></li>
                 <li><a href="circuito.html">Circuito</a></li>
-                <li><a href="viajes.html">Viajes</a></li>
+                <li><a href="viajes.php">Viajes</a></li>
                 <li><a class="active" href="juegos.html">Juegos</a></li>
             </ul>
         </nav>
@@ -93,7 +93,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <nav>
         <ul>
             <li><a href="memoria.html">Memoria</a></li>
-            <li><a href="semaforo.php">Semáforo</a></li>
+            <li><a href="semaforo.php">Semaforo</a></li>
+            <li><a href="api.html">Campeones F1</a></li>
+            <li><a href="comparadorF1.php">Comparador de equipos y pilotos de F1</a></li>
         </ul>
     </nav>
     <main></main>

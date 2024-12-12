@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </nav>
     </header>
     <header>
-        <p>Estás en: <a href="../index.html">F1 Desktop</a> >> <a href="../juegos.html"></a> Juegos >> Semaforo</p>
+        <p>Estás en: <a href="../index.html">F1 Desktop</a> >> <a href="../juegos.html">Juegos</a>  >> Semaforo</p>
     </header>
     <h2>Juegos</h2>
     <nav>

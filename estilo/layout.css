@@ -1,0 +1,298 @@
+/* Especificidad: 001 */
+header {
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  padding: 1em 2vw; 
+}
+
+/* Especificidad: 002 */
+header h1 {
+  margin: 0; 
+  font-size: 2rem; 
+}
+
+/* Especificidad: 003 */
+header nav ul {
+  display: flex; 
+  list-style-type: none; 
+  margin: 0; 
+  padding: 0; 
+  flex-direction: row;
+}
+@media (max-width: 800px) {    
+  header nav ul {
+    flex-direction: column;    
+    align-items: center;       
+  }
+}
+/* Especificidad: 004 */
+header nav ul li {
+  margin-left: 2vw; 
+}
+
+/* Especificidad: 002 */
+header p {
+  margin: 0; 
+  margin-top: 1em; 
+  font-size: 0.9rem; 
+}
+
+@media (max-width: 465px) {
+  /* Especificidad: 001 */
+  header {
+    flex-direction: column; 
+    align-items: flex-start; 
+  }
+
+  /* Especificidad: 002 */
+  header h1 {
+    font-size: 1.5rem; 
+  }
+
+  /* Especificidad: 003 */
+  header nav ul {
+    flex-direction: column; 
+    width: 100%; 
+  }
+
+  /* Especificidad: 004 */
+  header nav ul li {
+    margin-left: 0; 
+    margin-bottom: 1em; 
+  }
+
+  /* Especificidad: 002 */
+  header p {
+    display: none; 
+  }
+}
+
+/* Especificidad: 001 */
+h1 {
+  text-transform: uppercase;
+}
+
+/* Especificidad: 021 */
+a[href^="https"]:focus {
+  border-bottom: 0.1em solid; 
+}
+
+/* Especificidad: 021 */
+a[href^="https"]:hover {
+  border-bottom: 0.1em solid; 
+}
+
+/* Especificidad: 001 */
+ul {
+  list-style-type: square; 
+  padding-left: 2em; 
+}
+
+/* Especificidad: 002 */
+ul li {
+  margin-bottom: 1em; 
+}
+
+/* Especificidad: 001 */
+ol {
+  padding-left: 2em; 
+}
+
+/* Especificidad: 002 */
+ol li {
+  margin-bottom: 1em; 
+}
+
+/* Especificidad: 002 */
+ul ul, ol ul, ul ol, ol ol {
+  list-style-type: circle; 
+  margin-left: 1em; 
+}
+
+/* Especificidad: 003 */
+ul ul li, ol ul li, ul ol li, ol ol li {
+  margin-bottom: 0.5em; 
+}
+
+/* Especificidad: 001 */
+dl {
+  border: 0.1em solid #ddd; 
+  padding: 2em; 
+}
+
+/* Especificidad: 001 */
+dt {
+  padding: 0.5em; 
+  margin-top: 2em; 
+}
+
+/* Especificidad: 001 */
+dd {
+  margin-left: 1em; 
+  padding: 0.5em 1em; 
+}
+
+/* Especificidad: 001 */
+table {
+  margin: 2em 0; 
+  width: 100%; 
+  max-width: 100%;
+}
+
+/* Especificidad: 001 */
+th {
+  padding: 1em; 
+  text-align: center; 
+}
+
+/* Especificidad: 001 */
+td {
+  padding: 1em; 
+  border: 1px solid white; 
+  text-align: center; 
+}
+
+@media (max-width: 465px) {
+  /* Especificidad: 001 */
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  /* Especificidad: 001 */
+  tr {
+    margin-bottom: 1em; 
+  }
+
+  /* Especificidad: 001 */
+  td {
+    display: flex;
+    justify-content: space-between; 
+    padding: 1em; 
+  }
+}
+
+/* Especificidad: 001 */
+video {
+  width: 100%;       
+  height: auto;      
+  max-width: 100%;   
+}
+
+/* Especificidad: 001 */
+img {
+  width: 100%;       
+  height: auto;      
+  max-width: 100%;   
+}
+/* Especificidad: 002 */
+section > img {
+  width: 100%;          
+  height: auto;          
+  max-width: 100%;      
+  display: block;        
+  margin: 0 auto;       
+}
+/* Especificidad: 001 */
+svg{
+  width: 100%; 
+  height: 40vh;
+}
+/* Especificidad: 011 */
+body:fullscreen {
+  margin: 0; 
+  padding: 0;
+  display: block;
+}
+/* Especificidad: 001 */
+input {
+  width: 80%; 
+  margin: 1vh 0; 
+}
+
+/* Especificidad: 001 */
+svg {
+  margin: 2vh auto; 
+  width: 90%; 
+  height: 25vh; 
+}
+/* Especificidad: 001 */
+button {
+  font-size: 1em; 
+  padding: 0.5em 1em; 
+  margin-top: 1vh; 
+  border-radius: 0.5em; 
+  cursor: pointer;
+  display: block; 
+  margin-left: auto; 
+  margin-right: 2%;
+}
+/* Especificidad: 002 */
+main > div {  
+  height:50vh; 
+  width:70%; 
+}
+/* Especificidad: 003 */
+main > section > img{
+  height:50%;
+  width: 70%;
+}
+/* Especificidad: 002 */
+main > figure{
+  width: 40%;
+  height:30vh;
+  position:relative;
+  overflow:hidden;
+  align-items: center;
+  border-radius:1vh;
+  background: #fff;
+}
+/* Especificidad: 003 */
+main > figure > img{
+  width:100%;
+  height:100%;
+  position:absolute;
+  transition: transform 0.5s ease-in-out;
+  object-fit: cover;
+}
+/* Especificidad: 003 */
+main > figure > button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10%;
+  height: 10%;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 1.5rem; 
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s;
+}
+
+main > figure > button:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+
+main > figure > button:nth-of-type(1) {
+  left: 2%; 
+}
+
+main > figure > button:nth-of-type(2) {
+  right: 2%; 
+}
+
+/* Especificidad: 002 */
+main > article{
+  display: flex; 
+  justify-content: space-between; 
+  margin-top: 1vh;
+}
+
+

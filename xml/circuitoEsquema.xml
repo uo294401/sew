@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<circuito xmlns="http://www.uniovi.es"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.uniovi.es circuito.xsd"
+        nombre="MARINA BAY" 
+        longitud="4.94" 
+        anchuraMedia="13.5" 
+        fecha="2024-09-22" 
+        hora="14:00:00" 
+        numeroDeVueltas="62" 
+        localidad="Singapur" 
+        pais="Singapur">
+    <bibliografia>
+        <referencia link="https://www.formula1.com/en/racing/2024/singapore/circuit"></referencia>
+        <referencia link="https://es.wikipedia.org/wiki/Gran_Premio_de_Singapur"></referencia>
+        <referencia link="https://soymotor.com/f1/gp-de-singapur-f1-2024"></referencia>
+    </bibliografia>
+    <imagenes>
+        <imagen link="multimedia/imágenes/General.jpg"></imagen>
+        <imagen link="multimedia/imágenes/RectaSalida.jpg"></imagen>
+        <imagen link="multimedia/imágenes/parrillaSalida.jpg"></imagen>
+    </imagenes>
+    <coordenadas>
+        <coordenada longitud="103.864164" latitud="1.291695" altitud="4.16"></coordenada>
+    </coordenadas>
+    <tramos>
+        <tramo distancia="289.63" longitud="103.8637738530413" latitud="1.294281669572479" altitud="3.888835173321012" numeroSector="1"></tramo>
+        <tramo distancia="69.23" longitud="103.8631603759677" latitud="1.29438304626351" altitud="3.902496879933481" numeroSector="1"></tramo>
+        <tramo distancia="65.91" longitud="103.8627546319357" latitud="1.294802638000904" altitud="3.635906857499207" numeroSector="1"></tramo>
+        <tramo distancia="34.42" longitud="103.8624762891005" latitud="1.294668128549302" altitud="3.507211924260374" numeroSector="1"></tramo>
+        <tramo distancia="108.89" longitud="103.862434598204" latitud="1.293690359398066" altitud="3.059184888400206" numeroSector="1"></tramo>
+        <tramo distancia="240.38" longitud="103.862945150358" latitud="1.291596030137787" altitud="4.119456233819749" numeroSector="1"></tramo>
+        <tramo distancia="61.53" longitud="103.8625451827939" latitud="1.291223315474236" altitud="4.119348042924886" numeroSector="1"></tramo>
+        <tramo distancia="446.45" longitud="103.8585261891954" latitud="1.291540793571613" altitud="4.461324138115456" numeroSector="1"></tramo>
+        <tramo distancia="191.00" longitud="103.8570406597241" latitud="1.292431233804532" altitud="4.359140503822236" numeroSector="1"></tramo>
+        <tramo distancia="145.74" longitud="103.855897239109" latitud="1.293053793870836" altitud="4.113451670984441" numeroSector="2"></tramo>
+        <tramo distancia="216.33" longitud="103.8549204292429" latitud="1.291356868005626" altitud="5.038750123965714" numeroSector="2"></tramo>
+        <tramo distancia="193.21" longitud="103.8536563183906" latitud="1.292555555271884" altitud="5.66478119364133" numeroSector="2"></tramo>
+        <tramo distancia="454.64" longitud="103.8513848864062" latitud="1.289082506496283" altitud="5.297775370675355" numeroSector="2"></tramo>
+        <tramo distancia="135.59" longitud="103.8524044898783" latitud="1.288426280587492" altitud="4.804757307009919" numeroSector="2"></tramo>
+        <tramo distancia="71.53" longitud="103.8525094876264" latitud="1.287815540476672" altitud="5.695208192670382" numeroSector="2"></tramo>
+        <tramo distancia="208.18" longitud="103.8537740034483" latitud="1.286417273162441" altitud="8.05396849132122" numeroSector="2"></tramo>
+        <tramo distancia="494.05" longitud="103.8547407694085" latitud="1.290818429178866" altitud="4.996820491490725" numeroSector="2"></tramo>
+        <tramo distancia="57.86" longitud="103.8549362627458" latitud="1.291283598429453" altitud="4.95822939104051" numeroSector="3"></tramo>
+        <tramo distancia="278.59" longitud="103.8569601418661" latitud="1.289766063595252" altitud="5.031573502297936" numeroSector="3"></tramo>
+        <tramo distancia="81.78" longitud="103.8576926537096" latitud="1.289690565310503" altitud="5.046590446320041" numeroSector="3"></tramo>
+        <tramo distancia="53.78" longitud="103.8577019996136" latitud="1.289212605216937" altitud="4.737479875798975" numeroSector="3"></tramo>
+        <tramo distancia="26.85" longitud="103.8577662722723" latitud="1.288984457349752" altitud="4.73754242589256" numeroSector="3"></tramo>
+        <tramo distancia="23.37" longitud="103.8579282315565" latitud="1.288857665879308" altitud="4.42856512090922" numeroSector="3"></tramo>
+        <tramo distancia="199.03" longitud="103.8597159953639" latitud="1.288770386018364" altitud="4.125361615655844" numeroSector="3"></tramo>
+        <tramo distancia="87.18" longitud="103.8599257502683" latitud="1.289540390011543" altitud="4.588918022212829" numeroSector="3"></tramo>
+        <tramo distancia="137.84" longitud="103.8611727870778" latitud="1.289498575239345" altitud="4.13378980081073" numeroSector="3"></tramo>
+        <tramo distancia="42.00" longitud="103.8612154858073" latitud="1.289119560866177" altitud="4.119365911348806" numeroSector="3"></tramo>
+        <tramo distancia="40.00" longitud="103.8613995264854" latitud="1.288854674961246" altitud="4.1327866680759" numeroSector="3"></tramo>
+        <tramo distancia="284.38" longitud="103.8639636739132" latitud="1.288655397527367" altitud="4.119431014882751" numeroSector="3"></tramo>
+        <tramo distancia="104.5" longitud="103.8644511025207" latitud="1.289475597314474" altitud="4.046354048658179" numeroSector="3"></tramo>
+        <tramo distancia="110.3" longitud="103.8643260229208" latitud="1.290449539261829" altitud="4.07576890888359" numeroSector="3"></tramo>
+        <tramo distancia="108.00" longitud="103.8641625705159" latitud="1.291692095299434" altitud="4.119413763245532" numeroSector="3"></tramo>
+        <tramo distancia="0.01" longitud="103.8641625705159" latitud="1.291692095299434" altitud="4.119413763245532" numeroSector="3"></tramo>
+    </tramos>
+</circuito>

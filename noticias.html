@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>F1Desktop-Noticias</title>
+    <link rel="icon" href="multimedia/imágenes/favicon.ico" type="image/x-icon">
+    <meta name ="author" content ="Dario Cristobal Gonzalez" />
+    <meta name ="description" content ="Noticias sobre el Gran Premio o sobre el piloto" />
+    <meta name ="keywords" content ="Noticias" />
+    <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/article_elements.css" />
+    <script src="js/noticias.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1><a href="index.html">F1 Desktop</a></h1>
+        <nav>
+            <ul>
+                <li> <a href="index.html">Inicio</a> </li>
+                <li> <a href="piloto.html">Piloto</a> </li>
+                <li> <a class="active" href="noticias.html">Noticias</a> </li>
+                <li> <a href="calendario.html">Calendario</a> </li>
+                <li> <a href="meteorologia.html">Meteorologia</a> </li>
+                <li> <a href="circuito.html">Circuito</a> </li>
+                <li> <a href="php/viajes.php">Viajes</a> </li>
+                <li> <a href="juegos.html">Juegos</a> </li>
+            </ul>
+        </nav>
+    </header>
+    <header><p>Estas en: <a href="index.html">F1 Desktop</a> >> Noticias</p></header>
+    
+    <h2>Noticias</h2>
+    
+    <p>Selecciona un archivo de texto:</p>
+    <input type="file" onchange="noticias.readInputFile(this)" />
+    
+    <p>Añade una noticia:<br>
+    Título: <input type="text" oninput="window.titulo = this.value"><br>
+    Autor: <input type="text" oninput="window.autor = this.value"><br>
+    Texto: <input type="text" oninput="window.contenido = this.value">
+    </p>
+    <button onclick="noticias.agregarNoticiaManual(window.titulo, window.autor, window.contenido)">Añadir</button>
+    
+    <section>
+        <h3>Noticias del archivo y agregadas manualmente:</h3>
+    </section>
+    
+    <script>
+        const noticias = new Noticias();
+    </script>
+</body>
+</html>

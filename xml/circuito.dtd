@@ -1,0 +1,36 @@
+<!ELEMENT circuito (bibliografia, imagenes, (videos?), (audios?), coordenadas, tramos)>
+<!ATTLIST circuito 
+    nombre CDATA #REQUIRED
+    longitud CDATA #REQUIRED
+    anchuraMedia CDATA #REQUIRED
+    fecha CDATA #REQUIRED
+    hora CDATA #REQUIRED
+    numeroDeVueltas CDATA #REQUIRED
+    localidad CDATA #REQUIRED
+    pais CDATA #REQUIRED>
+
+<!ELEMENT bibliografia (referencia+)>
+<!ELEMENT referencia (#PCDATA)>
+<!ATTLIST referencia link CDATA #REQUIRED>
+
+<!ELEMENT imagenes (imagen+)>
+<!ELEMENT imagen (#PCDATA)>
+<!ATTLIST imagen link CDATA #REQUIRED>
+
+<!ELEMENT videos (video*)>
+<!ELEMENT video (#PCDATA)>
+<!ATTLIST video link CDATA #REQUIRED>
+
+<!ELEMENT coordenadas (coordenada+)>
+<!ELEMENT coordenada (#PCDATA)>
+<!ATTLIST coordenada longitud CDATA #REQUIRED>
+<!ATTLIST coordenada latitud CDATA #REQUIRED>
+<!ATTLIST coordenada altitud CDATA #REQUIRED>
+
+<!ELEMENT tramos (tramo+)>
+<!ELEMENT tramo (#PCDATA)>
+<!ATTLIST tramo distancia CDATA #REQUIRED>
+<!ATTLIST tramo longitud CDATA #REQUIRED>
+<!ATTLIST tramo latitud CDATA #REQUIRED>
+<!ATTLIST tramo altitud CDATA #REQUIRED>
+<!ATTLIST tramo numeroSector CDATA #REQUIRED>

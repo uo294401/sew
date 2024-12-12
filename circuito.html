@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+
+<html lang="es">
+<head>
+    <!-- Datos que describen el documento -->
+    <meta charset="UTF-8" />
+    <title>F1Desktop-Circuito de la carrera</title>
+    <link rel="icon" href="multimedia/imágenes/favicon.ico" type="image/x-icon">
+    <meta name ="author" content ="Dario Cristobal Gonzalez" />
+    <meta name ="description" content ="Página web de fórmula 1 en la que esta el circuito de el Gran Premio buscado" />
+    <meta name ="keywords" content ="Tamaño, Vueltas, Direccion" />
+    <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script defer src="js/circuito.js"></script>
+</head>
+   
+<body>
+    <header>
+        <h1><a href="index.html">F1 Desktop</a></h1>
+        <nav>
+            <ul>
+                <li> <a href="index.html">Inicio</a> </li>
+                <li> <a href="piloto.html">Piloto</a> </li>
+                <li> <a href="noticias.html">Noticias</a> </li>
+                <li> <a href="calendario.html">Calendario</a> </li>
+                <li> <a href="meteorologia.html">Meteorologia</a> </li>
+                <li> <a class="active" href="circuito.html">Circuito</a> </li>
+                <li> <a href="php/viajes.php">Viajes</a> </li>
+                <li> <a href="juegos.html">Juegos</a> </li>
+            </ul>
+        </nav>
+    </header>
+    <header><p>Estas en: <a href="index.html">F1 Desktop</a> >> Circuito</p></header>
+    <h2>Circuito</h2>
+    <h3>Subir archivo XML</h3>
+    <label>
+        Selecciona un archivo XML:
+        <input type="file" accept=".xml">
+    </label>
+    <section>
+        <h3>Archivo XML</h3>
+    </section>
+
+    <h3>Subir archivo KML</h3>
+    <label>
+        Selecciona un archivo KML:
+        <input type="file" accept=".kml">
+    </label>
+    <main><div></div></main>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6j4mF6blrc4kZ54S6vYZ2_FpMY9VzyRU" ></script>
+    <h3>Subir archivo SVG</h3>
+    <label>
+        Selecciona un archivo SVG:
+        <input type="file" accept=".svg">
+    </label>
+    <section>
+        <h3>Archivo SVG</h3>
+    </section>
+</body>
+</html>

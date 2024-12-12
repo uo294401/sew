@@ -1,0 +1,149 @@
+/*
+Darío Cristóbal González UO294401
+*/
+
+/* Especificidad: 001 */
+body {
+  background-color: #ffffff; 
+  color: #000000; 
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1rem; 
+}
+
+/* Especificidad: 001 */
+header {
+  color: #f9d135; 
+  background-color: #b00000; 
+  padding: 1em; 
+}
+
+/* Especificidad: 002 */
+header a {
+  color: #f9d135;
+  text-decoration: none;
+}
+
+/* Especificidad: 002 */
+header p {
+  color: #f9d135;
+  text-decoration: none;
+  font-size: 0.9rem; 
+}
+/* Especificidad: 001 */
+h1 {
+  color: #FFF675B4;    
+  font-size: 2rem; 
+}
+
+/* Especificidad: 002 */
+header p {
+  font-size: 1em; 
+}
+/* Especificidad: 021 */
+a[href^="https"]:link {
+  color: #0011ff;
+}
+
+/* Especificidad: 021 */
+a[href^="https"]:visited {
+  color: #6505e2c9;
+}
+
+/* Especificidad: 021 */
+a[href^="https"]:focus {
+  background: #bae498;
+}
+
+/* Especificidad: 021 */
+a[href^="https"]:hover {
+  background: #cdfeaa;
+}
+
+/* Especificidad: 021 */
+a[href^="https"]:active {
+  background: #265301;
+  color: #cdfeaa;
+}
+
+/* Especificidad: 001 */
+ul {
+  font-size: 1rem; 
+}
+
+/* Especificidad: 002 */
+ul li {
+  color: #333;
+}
+
+/* Especificidad: 001 */
+ol {
+  font-size: 1rem; 
+}
+
+/* Especificidad: 002 */
+ol li {
+  color: #333;
+}
+
+/* Especificidad: 002 */
+ul ul, ol ul, ul ol, ol ol {
+  font-size: 1rem; 
+}
+
+/* Especificidad: 003 */
+ul ul li, ol ul li, ul ol li, ol ol li {
+  color: #333; 
+}
+
+/* Especificidad: 001 */
+dt {
+  font-weight: bold;         
+  color: #f9d135;            
+  background-color: #b00000;         
+  font-size: 1.2rem; 
+}
+
+/* Especificidad: 001 */
+dd {       
+  font-size: 1rem; 
+  color: #333;             
+}
+
+/* Especificidad: 001 */
+table { 
+  font-size: 1rem; 
+  width: 100%; 
+  max-width: 100%; 
+}
+
+/* Especificidad: 001 */
+th {
+  background-color: #b00000; 
+  color: #f9d135;                                  
+  font-weight: bold;
+  padding: 1em; 
+}
+
+/* Especificidad: 001 */
+td {
+  padding: 1em; 
+  color: #333;     
+  background-color: #f2f2f2;        
+}
+
+/* Especificidad: 010 */
+:fullscreen {
+  background-color: inherit; 
+  color: inherit;          
+}
+
+/* Especificidad: 001 */
+button {
+  background-color: #b00000; 
+  color: #f9d135;
+}
+/* Especificidad: 011 */
+
+button:hover {
+  background-color: rgba(179, 0, 0, 0.644);
+}

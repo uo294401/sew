@@ -337,8 +337,7 @@ if (isset($_POST['cargar_equipos'])) {
         </table>
     <?php endif; ?>
     <form method="post">
-        <label>Selecciona una temporada:
-            <select name="temporada" required>
+        <label>Selecciona una temporada:<select name="temporada" required>
                 <?php foreach ($temporadas as $temporada): ?>
                     <option value="<?php echo $temporada['id_temporada']; ?>">
                         <?php echo htmlspecialchars($temporada['año']); ?>

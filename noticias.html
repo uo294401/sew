@@ -34,14 +34,16 @@
     
     <h2>Noticias</h2>
     
-    <p>Selecciona un archivo de texto:</p>
+    <p></p>
+    <label>Selecciona un archivo de texto:
     <input type="file" onchange="noticias.readInputFile(this)" />
+    </label>
     
-    <p>Añade una noticia:<br>
-    Título: <input type="text" oninput="window.titulo = this.value"><br>
-    Autor: <input type="text" oninput="window.autor = this.value"><br>
-    Texto: <input type="text" oninput="window.contenido = this.value">
-    </p>
+    <p>Añade una noticia:</p>
+    <label>Título: <input type="text" oninput="window.titulo = this.value"><br></label>
+    <label>Autor: <input type="text" oninput="window.autor = this.value"><br></label>
+    <label>Texto: <input type="text" oninput="window.contenido = this.value"></label>
+    
     <button onclick="noticias.agregarNoticiaManual(window.titulo, window.autor, window.contenido)">Añadir</button>
     
     <section>

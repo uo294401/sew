@@ -273,7 +273,7 @@ if (isset($_POST['cargar_equipos'])) {
         </nav>
     </header>
     <header>
-        <p>Estás en: <a href="../index.html">F1 Desktop</a> >> <a href="../juegos.html"></a> Juegos >> Clasificacion temporadas</p>
+        <p>Estás en: <a href="../index.html">F1 Desktop</a> >> <a href="../juegos.html">Juegos</a>  >> Clasificacion temporadas</p>
     </header>
     <h2>Juegos</h2>
     <nav>

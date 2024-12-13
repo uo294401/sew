@@ -39,6 +39,11 @@ h1 {
 header p {
   font-size: 1em; 
 }
+/* Especificidad: 011 */
+a.active{
+  color:#f9d135;
+  background-color: #860202ef;
+}
 /* Especificidad: 021 */
 a[href^="https"]:link {
   color: #0011ff;

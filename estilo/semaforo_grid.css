@@ -1,3 +1,4 @@
+/* Especificidad: 001 */
 main {
     display: grid;
     grid-template-rows: auto 1fr auto auto;
@@ -7,14 +8,15 @@ main {
     margin: auto;
     padding: 2vh;
 }
-
+/* Especificidad: 002 */
 main h1 {
     grid-column: 1/-1;
     text-align: center;
     font-size: 1.5em;
-    color: rgb(0, 0, 0);
+    color: #000;
+    background-color: #fff;
 }
-
+/* Especificidad: 002 */
 main div {
     width: 100%;
     height: auto;
@@ -22,15 +24,16 @@ main div {
     background-color: #0007;
     border: 0.6vh solid #000;
     border-radius: 50%;
+    color: #fff;
 }
-
+/* Especificidad: 002 */
 main button {
     grid-column: span 2;
     padding: 1vh;
     font-size: 1em;
     cursor: pointer;
 }
-
+/* Especificidad: 002 */
 main p {
     grid-column: span 4;
     text-align: center;
@@ -40,24 +43,28 @@ main p {
     0% { background-color: #0007; }
     100% { background-color: red; }
 }
-
+/* Especificidad: 022 */
 main.load div:nth-of-type(1) {     
     animation-name: on;
     animation-duration: 0.5s;
     animation-delay: 0s;
-    animation-fill-mode: forwards; }
+    animation-fill-mode: forwards; 
+}
+/* Especificidad: 022 */
 main.load div:nth-of-type(2) {     
     animation-name: on;
     animation-duration: 0.5s;
     animation-delay: 0.5s;
     animation-fill-mode: forwards;
  }
+ /* Especificidad: 022 */
 main.load div:nth-of-type(3) {     
     animation-name: on;
     animation-duration: 0.5s;
     animation-delay: 1s;
     animation-fill-mode: forwards;
  }
+ /* Especificidad: 022 */
 main.load div:nth-of-type(4) {     
     animation-name: on;
     animation-duration: 0.5s;
@@ -66,10 +73,12 @@ main.load div:nth-of-type(4) {
  }
 
 @keyframes out {
-    0% { background-color: red; }
-    100% { background-color: #0007; }
+    /*Warning: Redefinition of background-color*/
+    0% { background-color: red; color:#fff}
+    /*Warning: Redefinition of background-color*/
+    100% { background-color: #0007; color:#fff}
 }
-
+ /* Especificidad: 012 */
 main.unload div {
     animation-name: out;
     animation-duration: 0.1s;

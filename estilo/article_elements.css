@@ -3,11 +3,13 @@ article {
     width: 90%; 
     margin: 1em auto; 
     padding: 2%; 
-    border: 1px solid #ccc;
-    border-radius: 10px;
+    border: 0.05rem solid #ccc;
+    border-radius: 0.625rem; 
     background-color: #f9f9f9;
+    color:#000;
     box-sizing: border-box; 
 }
+
 /* Especificidad: 002 */
 article p {
     font-size: 1.2rem; 
@@ -18,9 +20,8 @@ article p {
 /* Especificidad: 002 */
 article img {
     width: 30%; 
-    max-width: 100px; 
+    max-width: 6.25rem; 
     height: auto; 
     display: block; 
     margin: 0 auto 1em; 
 }
-

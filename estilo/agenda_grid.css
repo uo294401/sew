@@ -1,13 +1,15 @@
+/* Especificidad: 003 */
 section ul li {
     margin: 1rem 0;
     padding: 1rem;
     border: 0.1rem solid #ccc;
     border-radius: 0.5rem;
     background-color: #f9f9f9;
+    color:#000;
     list-style-type: none;
     font-size: 1rem; 
 }
-
+/* Especificidad: 001 */
 button {
     padding: 0.5rem 1rem;
     font-size: 1rem;
@@ -17,7 +19,8 @@ button {
     background-color: #b00000; 
     cursor: pointer;
 }
-
+/* Especificidad: 011 */
 button:hover {
+    color: #f9d135; 
     background-color: #9b0101; 
 }

@@ -40,18 +40,18 @@ class Geolocalización {
     getMapaEstaticoGoogle(dondeVerlo){
         const ubicacion = document.querySelector("section");
         
-        var apiKey = "&key=AIzaSyC6j4mF6blrc4kZ54S6vYZ2_FpMY9VzyRU";
+        var apiKey = "&key=AIzaSyBv7eN8EoyOgoHK1Gf8zO5QPWN1SY7SWy0";
         var url = "https://maps.googleapis.com/maps/api/staticmap?";
         var centro = "center=" + this.latitud + "," + this.longitud;
 
         var zoom ="&zoom=15";
-        var tamaño= "&size=300x230";
+        var tamaño= "&size=600x450";
         var marcador = "&markers=color:red%7Clabel:S%7C" + this.latitud + "," + this.longitud;
         var sensor = "&sensor=false"; 
         
         var formato = "&format=webp";
         this.imagenMapa = url + centro + zoom + tamaño + marcador + sensor + apiKey + formato;
-        ubicacion.innerHTML = "<img src='"+this.imagenMapa+"' alt='mapa estático google' />";
+        ubicacion.innerHTML += "<img src='"+this.imagenMapa+"' alt='mapa estático google' />";
     }
     initMap(){  
         const mapaGeoposicionado = new google.maps.Map(document.querySelector("main > div"),{

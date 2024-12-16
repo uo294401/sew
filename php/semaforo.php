@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8" />
     <title>F1Desktop-Juegos</title>
-    <link rel="icon" href="multimedia/imágenes/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../multimedia/imágenes/favicon.ico" type="image/x-icon">
     <meta name="author" content="Dario Cristobal Gonzalez" />
     <meta name="description" content="Juegos de la pagina web" />
     <meta name="keywords" content="" />
@@ -74,16 +74,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <header>
         <h1><a href="index.html">F1 Desktop</a></h1>
         <nav>
-            <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="../piloto.html">Piloto</a></li>
-                <li><a href="../noticias.html">Noticias</a></li>
-                <li><a href="../calendario.html">Calendario</a></li>
-                <li><a href="../meteorologia.html">Meteorologia</a></li>
-                <li><a href="../circuito.html">Circuito</a></li>
-                <li><a href="viajes.php">Viajes</a></li>
-                <li><a class="active" href="../juegos.html">Juegos</a></li>
-            </ul>
+            <a href="../index.html">Inicio</a>
+            <a href="../piloto.html">Piloto</a>
+            <a href="../noticias.html">Noticias</a>
+            <a href="../calendario.html">Calendario</a>
+            <a href="../meteorologia.html">Meteorologia</a>
+            <a href="../circuito.html">Circuito</a>
+            <a href="viajes.php">Viajes</a>
+            <a class="active" href="../juegos.html">Juegos</a>
         </nav>
     </header>
     <header>
@@ -99,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </ul>
     </nav>
     <main></main>
-    <section></section>
+    <section><h4>Formulario</h4></section>
     <?php if (!empty($topRecords)): ?>
         <h3>Top 10 Récords</h3>
         <ol>

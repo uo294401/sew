@@ -9,7 +9,7 @@ $(document).ready(function() {
                 const xmlDoc = parser.parseFromString(e.target.result, "application/xml");
   
   
-                let outputHtml = "<ul>";
+                let outputHtml;
   
                 const ns = "http://www.uniovi.es";
   
@@ -126,7 +126,20 @@ $(document).ready(function() {
         if (file && file.type === "image/svg+xml") {
             const reader = new FileReader();
             reader.onload = function(e) {
-                outputSvg.html(e.target.result);
+                const svgContent = e.target.result;
+
+                outputSvg.html(svgContent);
+    
+                const h3 = $('<h3></h3>').text('Archivo svg');
+                outputSvg.prepend(h3);
+
+                const svgElement = outputSvg.find('svg');
+                const containerWidth = outputSvg.width();
+                const containerHeight = outputSvg.height();
+    
+                svgElement.attr('viewBox', svgElement.attr('viewBox') || `0 0 ${containerWidth} ${containerHeight}`);
+                svgElement.attr('width', '100%');
+                svgElement.attr('height', '100%');
             };
             reader.readAsText(file);
         } 

@@ -69,7 +69,7 @@ $cambio = $moneda->obtenerCambio();
 <head>
     <meta charset="UTF-8" />
     <title>F1Desktop-Viajes</title>
-    <link rel="icon" href="multimedia/imágenes/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../multimedia/imágenes/favicon.ico" type="image/x-icon">
     <meta name="author" content="Dario Cristobal Gonzalez" />
     <meta name="description" content="Viajes de la temporada" />
     <meta name="keywords" content="Direccion, Reserva, Hoteles, Fecha" />
@@ -78,34 +78,30 @@ $cambio = $moneda->obtenerCambio();
     <link rel="stylesheet" type="text/css" href="../estilo/layout.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../js/viajes.js" ></script>
-    <link rel="preload" href="https://maps.googleapis.com/maps/api/staticmap?center=LATITUD,LONGITUD&zoom=15&size=300x230&markers=color:red%7Clabel:S%7CLATITUD,LONGITUD&sensor=false&format=webp" as="image">
     </head>
 <body>
     <header>
         <h1><a href="../index.html">F1 Desktop</a></h1>
         <nav>
-            <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="../piloto.html">Piloto</a></li>
-                <li><a href="../noticias.html">Noticias</a></li>
-                <li><a href="../calendario.html">Calendario</a></li>
-                <li><a href="../meteorologia.html">Meteorologia</a></li>
-                <li><a href="../circuito.html">Circuito</a></li>
-                <li><a class="active" href="viajes.php">Viajes</a></li>
-                <li><a href="../juegos.html">Juegos</a></li>
-            </ul>
+            <a href="../index.html">Inicio</a>
+            <a href="../piloto.html">Piloto</a>
+            <a href="../noticias.html">Noticias</a>
+            <a href="../calendario.html">Calendario</a>
+            <a href="../meteorologia.html">Meteorologia</a>
+            <a href="../circuito.html">Circuito</a>
+            <a class="active" href="viajes.php">Viajes</a>
+            <a href="../juegos.html">Juegos</a>
         </nav>
     </header>
     <header><p>Estas en: <a href="../index.html">F1 Desktop</a> >> Viajes</p></header>
     <h2>Viajes</h2>
     <main>
-        <h3>Mapa estático</h3>
-        <section></section> 
+        <section><h3>Mapa estático</h3></section> 
         <button aria-label="Mostrar Mapa Estático">Mostrar Mapa Estático</button>
         <h3>Mapa dinámico</h3>
         <div></div> 
         <button aria-label="Mostrar Mapa Dinámico">Mostrar Mapa Dinámico</button>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6j4mF6blrc4kZ54S6vYZ2_FpMY9VzyRU"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv7eN8EoyOgoHK1Gf8zO5QPWN1SY7SWy0"></script>
         <h3>Carrusel de imágenes</h3>
         <?php
         $carrusel = new Carrusel("Singapur", "Singapur");

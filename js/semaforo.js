@@ -83,23 +83,15 @@ class Semaforo {
 
         const formHtml = `
         <form method="POST" action="semaforo.php">
-            <label for="nombre">Nombre:</label>
-            <input type="text" name="nombre" required><br>
-
-            <label for="apellidos">Apellidos:</label>
-            <input type="text" name="apellidos" required><br>
-
-            <label for="nivel">Nivel:</label>
-            <input type="text" name="nivel" value="${this.#difficulty}" readonly><br>
-
-            <label for="tiempo">Tiempo de reacción (segundos):</label>
-            <input type="text" name="tiempo" value="${((this.#clic_moment - this.#unload_moment) / 1000).toFixed(3)}" readonly><br>
-
+            <label>Nombre: <input type="text" name="nombre" required><br></label>
+            <label>Apellidos: <input type="text" name="apellidos" required><br></label>
+            <label>Nivel: <input type="text" name="nivel" value="${this.#difficulty}" readonly><br></label>
+            <label>Tiempo de reacción (segundos): <input type="text" name="tiempo" value="${((this.#clic_moment - this.#unload_moment) / 1000).toFixed(3)}" readonly><br></label>
             <input type="submit" value="Guardar Record">
         </form>
     `;
 
-        sectionElement.innerHTML = formHtml;
+        sectionElement.innerHTML += formHtml;
     }
 
 }

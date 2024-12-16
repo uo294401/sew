@@ -23,28 +23,11 @@ class Pais {
         this.#religionMayoritaria = religionMayoritaria;
     }
     generarContenidoDinamico() {
-        const tituloPais = document.createElement("h3");
-        tituloPais.textContent = `Información del País: ${this.#nombre}`;
-        document.body.appendChild(tituloPais);
-
-        const capitalPais = document.createElement("p");
-        capitalPais.textContent = `Capital: ${this.#capital}`;
-        document.body.appendChild(capitalPais);
-
-        const infoSecundaria = document.createElement("ul");
-        infoSecundaria.innerHTML = `
-            <li>Circuito de F1: ${this.#circuitoF1}</li>
-            <li>Población: ${this.#poblacion}</li>
-            <li>Forma de Gobierno: ${this.#formaGobierno}</li>
-            <li>Religión Mayoritaria: ${this.#religionMayoritaria}</li>
-        `;
-        document.body.appendChild(infoSecundaria);
-
+        document.write("<h3> Información del País: "+this.#nombre+"</h3>");
+        document.write("<p> Capital: "+this.#capital+"</p>");
+        document.write("<ul><li>Circuito de F1: "+this.#circuitoF1+"</li><li>Población: "+this.#poblacion+"</li><li>Forma de Gobierno: "+this.#formaGobierno+"</li><li>Religión Mayoritaria: "+this.#religionMayoritaria+"</li></ul>");
         const { lat, lon, alt } = this.#coordenadasMeta;
-        const coordenadas = document.createElement("p");
-        coordenadas.textContent = `Coordenadas de la línea de meta: Latitud ${lat}, Longitud ${lon}, Altitud ${alt}`;
-        document.body.appendChild(coordenadas);
-
+        document.write("<p> Coordenadas de la línea de meta: Latitud: "+lat+", Longitud "+lon+", Altitud "+alt+"</p>");
         this.cargarDatos();
     }
     obtenerNombre() {

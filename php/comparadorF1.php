@@ -246,30 +246,26 @@ if (isset($_POST['cargar_equipos'])) {
 <head>
     <meta charset="UTF-8" />
     <title>F1Desktop-Juegos</title>
-    <link rel="icon" href="multimedia/imágenes/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../multimedia/imágenes/favicon.ico" type="image/x-icon">
     <meta name="author" content="Dario Cristobal Gonzalez" />
     <meta name="description" content="Controlador de las temporadas" />
     <meta name="keywords" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="../estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="../estilo/layout.css" />
-    <script src="../js/comparadorF1.js"></script>
-
 </head>
 <body>
     <header>
         <h1><a href="../index.html">F1 Desktop</a></h1>
         <nav>
-            <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="../piloto.html">Piloto</a></li>
-                <li><a href="../noticias.html">Noticias</a></li>
-                <li><a href="../calendario.html">Calendario</a></li>
-                <li><a href="../meteorologia.html">Meteorologia</a></li>
-                <li><a href="../circuito.html">Circuito</a></li>
-                <li><a href="viajes.php">Viajes</a></li>
-                <li><a class="active" href="../juegos.html">Juegos</a></li>
-            </ul>
+            <a href="../index.html">Inicio</a>
+            <a href="../piloto.html">Piloto</a>
+            <a href="../noticias.html">Noticias</a>
+            <a href="../calendario.html">Calendario</a>
+            <a href="../meteorologia.html">Meteorologia</a>
+            <a href="../circuito.html">Circuito</a>
+            <a href="viajes.php">Viajes</a>
+            <a class="active" href="../juegos.html">Juegos</a>
         </nav>
     </header>
     <header>
@@ -338,6 +334,7 @@ if (isset($_POST['cargar_equipos'])) {
     <?php endif; ?>
     <form method="post">
         <label>Selecciona una temporada:<select name="temporada" required>
+            <option value="" disabled selected>-- Selecciona una temporada --</option>
                 <?php foreach ($temporadas as $temporada): ?>
                     <option value="<?php echo $temporada['id_temporada']; ?>">
                         <?php echo htmlspecialchars($temporada['año']); ?>

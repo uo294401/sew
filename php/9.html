@@ -38,15 +38,23 @@
             <li><a href="comparadorF1.php">Clasificacion por temporadas de equipos y pilotos</a></li>
         </ul>
     </nav>
-    <main><h1>Juego del Semáforo</h1><div></div><div></div><div></div><div></div><button>Arranque</button><button disabled="">Reacción</button></main>
-    <section></section>
+    <main class=""><h1>Juego del Semáforo</h1><div></div><div></div><div></div><div></div><button>Arranque</button><button disabled="">Reacción</button><p>Tiempo de reacción: 0.140 segundos</p></main>
+    <section><h4>Formulario</h4>
+        <form method="POST" action="semaforo.php">
+            <label>Nombre: <input type="text" name="nombre" required=""><br></label>
+            <label>Apellidos: <input type="text" name="apellidos" required=""><br></label>
+            <label>Nivel: <input type="text" name="nivel" value="0.8" readonly=""><br></label>
+            <label>Tiempo de reacción (segundos): <input type="text" name="tiempo" value="0.140" readonly=""><br></label>
+            <input type="submit" value="Guardar Record">
+        </form>
+    </section>
             <h3>Top 10 Récords</h3>
         <ol>
-                            <li>ads asd - 0.015 segundos</li>
-                            <li>sda asd - 0.03 segundos</li>
-                            <li>as sa - 0.119 segundos</li>
-                            <li>dsdf fs - 0.165 segundos</li>
-                            <li>fsd sdf - 0.173 segundos</li>
+                            <li>dsf sdf - 0.076 segundos</li>
+                            <li>dsf sdf - 0.076 segundos</li>
+                            <li>asd asd - 0.152 segundos</li>
+                            <li>asd das - 0.344 segundos</li>
+                            <li>das asd - 0.412 segundos</li>
                     </ol>
         <script>
         "use strict";

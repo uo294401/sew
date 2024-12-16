@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+<html lang="es"><head>
+    <meta charset="UTF-8">
+    <title>F1Desktop-Juegos</title>
+    <link rel="icon" href="../multimedia/imágenes/favicon.ico" type="image/x-icon">
+    <meta name="author" content="Dario Cristobal Gonzalez">
+    <meta name="description" content="Controlador de las temporadas">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../estilo/estilo.css">
+    <link rel="stylesheet" type="text/css" href="../estilo/layout.css">
+    <script src="../js/comparadorF1.js"></script>
+
+</head>
+<body>
+    <header>
+        <h1><a href="../index.html">F1 Desktop</a></h1>
+        <nav>
+            <a href="../index.html">Inicio</a>
+            <a href="../piloto.html">Piloto</a>
+            <a href="../noticias.html">Noticias</a>
+            <a href="../calendario.html">Calendario</a>
+            <a href="../meteorologia.html">Meteorologia</a>
+            <a href="../circuito.html">Circuito</a>
+            <a href="viajes.php">Viajes</a>
+            <a class="active" href="../juegos.html">Juegos</a>
+        </nav>
+    </header>
+    <header>
+        <p>Estás en: <a href="../index.html">F1 Desktop</a> &gt;&gt; <a href="../juegos.html">Juegos</a>  &gt;&gt; Clasificacion temporadas</p>
+    </header>
+    <h2>Juegos</h2>
+    <nav>
+        <ul>
+            <li><a href="../memoria.html">Memoria</a></li>
+            <li><a href="semaforo.php">Semaforo</a></li>
+            <li><a href="../api.html">Campeones F1</a></li>
+            <li><a href="comparadorF1.php">Clasificacion por temporadas de equipos y pilotos</a></li>
+        </ul>
+    </nav>
+    <form action="comparadorF1.php" method="post" enctype="multipart/form-data">
+    <h3>Crear la base de datos</h3>
+    <p>Haciendo click en este botón crearas la base de datos</p>
+    <button type="submit" name="crear_db">Crear</button>
+    <h3>Importar un csv a la base de datos</h3>
+    <p>Haciendo click en este botón importaras el csv elegido a la base de datos</p>
+    <label>Selecciona el archivo CSV:<input type="file" name="csv_file" accept=".csv"></label>
+    <button type="submit" name="importar_csv">Importar</button>
+    <h3>Exportar un csv de la base de datos</h3>
+    <p>Haciendo click en este botón exportaras un csv de la base de datos</p>
+    <button type="submit" name="exportar_csv">Exportar CSV</button>
+    <h3>Clasificación por temporada</h3>
+    </form>
+            <h4>Clasificación de Pilotos</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Piloto</th>
+                    <th>Puntos</th>
+                </tr>
+            </thead>
+            <tbody>
+                                    <tr>
+                        <td>Max Verstappen</td>
+                        <td>575</td>
+                    </tr>
+                                    <tr>
+                        <td>Sergio Pérez</td>
+                        <td>285</td>
+                    </tr>
+                                    <tr>
+                        <td>Lewis Hamilton</td>
+                        <td>234</td>
+                    </tr>
+                                    <tr>
+                        <td>Fernando Alonso</td>
+                        <td>206</td>
+                    </tr>
+                                    <tr>
+                        <td>Charles Leclerc</td>
+                        <td>206</td>
+                    </tr>
+                                    <tr>
+                        <td>Lando Norris</td>
+                        <td>205</td>
+                    </tr>
+                                    <tr>
+                        <td>Carlos Sainz</td>
+                        <td>200</td>
+                    </tr>
+                                    <tr>
+                        <td>George Russell</td>
+                        <td>175</td>
+                    </tr>
+                                    <tr>
+                        <td>Oscar Piastri</td>
+                        <td>97</td>
+                    </tr>
+                                    <tr>
+                        <td>Lance Stroll</td>
+                        <td>74</td>
+                    </tr>
+                                    <tr>
+                        <td>Pierre Gasly</td>
+                        <td>62</td>
+                    </tr>
+                                    <tr>
+                        <td>Esteban Ocon</td>
+                        <td>58</td>
+                    </tr>
+                                    <tr>
+                        <td>Alex Albon</td>
+                        <td>27</td>
+                    </tr>
+                                    <tr>
+                        <td>Yuki Tsunoda</td>
+                        <td>17</td>
+                    </tr>
+                                    <tr>
+                        <td>Valtteri Bottas</td>
+                        <td>10</td>
+                    </tr>
+                                    <tr>
+                        <td>Nico Hulkenberg</td>
+                        <td>9</td>
+                    </tr>
+                                    <tr>
+                        <td>Guanyu Zhou</td>
+                        <td>6</td>
+                    </tr>
+                                    <tr>
+                        <td>Daniel Ricciardo</td>
+                        <td>6</td>
+                    </tr>
+                                    <tr>
+                        <td>Kevin Magnussen</td>
+                        <td>3</td>
+                    </tr>
+                                    <tr>
+                        <td>Liam Lawson</td>
+                        <td>2</td>
+                    </tr>
+                                    <tr>
+                        <td>Logan Sargeant</td>
+                        <td>1</td>
+                    </tr>
+                                    <tr>
+                        <td>Nyck de Vries</td>
+                        <td>0</td>
+                    </tr>
+                            </tbody>
+        </table>
+    
+        <form method="post">
+        <label>Selecciona una temporada:<select name="temporada" required="">
+                                    <option value="1">
+                        2023                    </option>
+                                    <option value="2">
+                        2022                    </option>
+                                    <option value="3">
+                        2021                    </option>
+                                    <option value="4">
+                        2020                    </option>
+                            </select>
+        </label>
+
+        <button type="submit" name="cargar_pilotos">Cargar Clasificación Pilotos</button>
+        <button type="submit" name="cargar_equipos">Cargar Clasificación Equipos</button>
+    </form>    
+
+
+
+</body></html>

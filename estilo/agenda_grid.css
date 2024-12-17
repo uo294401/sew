@@ -1,5 +1,5 @@
 /* Especificidad: 003 */
-section ul li {
+section article {
     margin: 1rem 0;
     padding: 1rem;
     border: 0.1rem solid #ccc;

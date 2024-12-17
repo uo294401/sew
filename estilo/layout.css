@@ -278,3 +278,7 @@ main article{
   justify-content: space-between; 
   margin-top: 1vh;
 }
+/* Especificidad: 001 */
+label{
+  display:block;
+}

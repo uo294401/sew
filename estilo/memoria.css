@@ -5,19 +5,19 @@ section{
 section section {
     display: flex;
     flex-wrap: wrap;
-    width: 80%;
-    max-width: 80%;
-    height: 80vh;
+    width: 60%;
+    max-width: 60%;
+    height: 70vh;
     margin-top: 2vh;
     align-items: center;
-    gap:3vw;
+    gap:1.5vw;
 }
 
 
 /* Especificidad: 003 */
 section section article {
     width: 20%;
-    height: 20vh;
+    height: 22vh;
     border: 0.1em solid #ccc;
     position: relative;
     cursor: pointer;
@@ -68,7 +68,7 @@ section >section h4 {
     necesito hacer estas redefiniciones para que en móvil se pueda ver bien */
     section section {
         width: 100%;
-        height: 100vh;
+        height: 60vh;
         gap:1vw;
     }
     /* Warning: Redefinition of width, Redefinition of height 
@@ -76,7 +76,7 @@ section >section h4 {
     /* Especificidad: 003 */
     section section article {
         width: calc(23% - 1vw);
-        height: 25vh;
+        height: 15vh;
     }
     /* Especificidad: 004 */
     section section article h3{

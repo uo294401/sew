@@ -7,7 +7,7 @@ section section {
     flex-wrap: wrap;
     width: 60%;
     max-width: 60%;
-    height: 70vh;
+    height: 95vh;
     margin-top: 2vh;
     align-items: center;
     gap:1.5vw;
@@ -17,7 +17,7 @@ section section {
 /* Especificidad: 003 */
 section section article {
     width: 20%;
-    height: 22vh;
+    height: 25vh;
     border: 0.1em solid #ccc;
     position: relative;
     cursor: pointer;

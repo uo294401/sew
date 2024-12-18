@@ -1,94 +1,53 @@
 <!DOCTYPE HTML>
 <html lang="es"><head>
+    <!-- Datos que describen el documento -->
     <meta charset="UTF-8">
-    <title>F1Desktop-Meteorologia</title>
+    <title>F1Desktop-Juegos-Memoria</title>
     <link rel="icon" href="multimedia/imágenes/favicon.ico" type="image/x-icon">
     <meta name="author" content="Dario Cristobal Gonzalez">
-    <meta name="description" content="Información sobre la meteorología en ese Gran Premio">
-    <meta name="keywords" content="Temperatura, Humedad">
+    <meta name="description" content="Juegos de la pagina web">
+    <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css">
     <link rel="stylesheet" type="text/css" href="estilo/layout.css">
-    <link rel="stylesheet" type="text/css" href="estilo/article_elements.css">
-    <script src="js/pais.js"></script> 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="estilo/memoria.css">
+    <script src="js/memoria.js"></script> 
 </head>
+   
 <body>
     <header>
         <h1><a href="index.html">F1 Desktop</a></h1>
         <nav>
-            <a href="index.html">Inicio</a> 
+            <a href="index.html">Inicio</a>
             <a href="piloto.html">Piloto</a>
-            <a href="noticias.html">Noticias</a>
+            <a href="noticias.html">Noticias</a> 
             <a href="calendario.html">Calendario</a> 
-            <a class="active" href="meteorologia.html">Meteorologia</a>
-            <a href="circuito.html">Circuito</a>
+            <a href="meteorologia.html">Meteorologia</a> 
+            <a href="circuito.html">Circuito</a> 
             <a href="php/viajes.php">Viajes</a> 
-            <a href="juegos.html">Juegos</a>
+            <a class="active" href="juegos.html">Juegos</a> 
         </nav>
     </header>
-    <header><p>Estas en: <a href="index.html">F1 Desktop</a> &gt;&gt; Meteorología</p></header>
-    <h2>Meteorología</h2>
-    <script>
-        "use strict";
-        const pais = new Pais("Singapur", "Singapur", 5917600);
-        pais.inicializarValores("Marina Bay", "República parlamentaria", { lat: 1.290449539261829, lon: 103.8643260229208, alt: 4.07576890888359 }, "Budismo");
-        
-        pais.generarContenidoDinamico();
-    </script><h3> Información del País: Singapur</h3><p> Capital: Singapur</p><ul><li>Circuito de F1: Marina Bay</li><li>Población: 5917600</li><li>Forma de Gobierno: República parlamentaria</li><li>Religión Mayoritaria: Budismo</li></ul><p> Coordenadas de la línea de meta: Latitud: 1.290449539261829, Longitud 103.8643260229208, Altitud 4.07576890888359</p>
+    <header><p>Estas en: <a href="index.html">F1 Desktop</a> &gt;&gt; <a href="juegos.html">Juegos</a>  &gt;&gt; Memoria</p></header>
+    <h2>Juegos</h2>
+    <nav>
+        <ul>
+            <li><a href="memoria.html">Memoria</a></li>
+            <li><a href="php/semaforo.php">Semaforo</a></li>
+            <li><a href="api.html">Campeones F1</a></li>
+            <li><a href="php/comparadorF1.php">Clasificacion por temporadas de equipos y pilotos</a></li>
+        </ul>
+    </nav>
+    <section>
+        <h3>Juego de memoria</h3>
+        <p>Haz clic en las cartas para girar las cartas y encontrar las parejas de imágenes iguales. Si las cartas coinciden, permanecerán visibles. El juego termina cuando todas las cartas estén descubiertas.
+        </p>
+        <section><h4>A divertirse</h4><article data-element="McLaren" data-state="hidden"><h3>Memory Card</h3><img src="multimedia/imágenes/McLaren_Racing_logo.svg" alt="McLaren"></article><article data-element="Mercedes" data-state="hidden"><h3>Memory Card</h3><img src="multimedia/imágenes/Mercedes_AMG_Petronas_F1_Logo.svg" alt="Mercedes"></article><article data-element="Red Bull" data-state="hidden"><h3>Memory Card</h3><img src="multimedia/imágenes/Red_Bull_Racing_logo.svg" alt="Red Bull"></article><article data-element="Alpine" data-state="hidden"><h3>Memory Card</h3><img src="multimedia/imágenes/Alpine_F1_Team_2021_Logo.svg" alt="Alpine"></article><article data-element="Mercedes" data-state="hidden"><h3>Memory Card</h3><img src="multimedia/imágenes/Mercedes_AMG_Petronas_F1_Logo.svg" alt="Mercedes"></article><article data-element="Aston Martin" data-state="hidden"><h3>Memory Card</h3><img src="multimedia/imágenes/Aston_Martin_Aramco_Cognizant_F1.svg" alt="Aston Martin"></article><article data-element="Alpine" data-state="hidden"><h3>Memory Card</h3><img src="multimedia/imágenes/Alpine_F1_Team_2021_Logo.svg" alt="Alpine"></article><article data-element="Ferrari" data-state="hidden"><h3>Memory Card</h3><img src="multimedia/imágenes/Scuderia_Ferrari_Logo.svg" alt="Ferrari"></article><article data-element="McLaren" data-state="hidden"><h3>Memory Card</h3><img src="multimedia/imágenes/McLaren_Racing_logo.svg" alt="McLaren"></article><article data-element="Aston Martin" data-state="hidden"><h3>Memory Card</h3><img src="multimedia/imágenes/Aston_Martin_Aramco_Cognizant_F1.svg" alt="Aston Martin"></article><article data-element="Ferrari" data-state="hidden"><h3>Memory Card</h3><img src="multimedia/imágenes/Scuderia_Ferrari_Logo.svg" alt="Ferrari"></article><article data-element="Red Bull" data-state="hidden"><h3>Memory Card</h3><img src="multimedia/imágenes/Red_Bull_Racing_logo.svg" alt="Red Bull"></article></section>
+        <script>
+            "use strict";
+            new Memoria(false, false, null, null);
+        </script>
+    </section>
 
 
-                    <article>
-                        <h3>Pronóstico para el 16/12/2024</h3>
-                        <p><strong>Temperatura máxima:</strong> 26.64 °C</p>
-                        <p><strong>Temperatura mínima:</strong> 25.87 °C</p>
-                        <p><strong>Humedad promedio:</strong> 85.50 %</p>
-                        <p><strong>Lluvia total:</strong> 8.85 mm</p>
-                        <p><img src="https://openweathermap.org/img/wn/10n@2x.png" alt="Icono del clima"></p>
-                    </article>
-                
-                    <article>
-                        <h3>Pronóstico para el 17/12/2024</h3>
-                        <p><strong>Temperatura máxima:</strong> 29.60 °C</p>
-                        <p><strong>Temperatura mínima:</strong> 25.58 °C</p>
-                        <p><strong>Humedad promedio:</strong> 81.25 %</p>
-                        <p><strong>Lluvia total:</strong> 17.88 mm</p>
-                        <p><img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Icono del clima"></p>
-                    </article>
-                
-                    <article>
-                        <h3>Pronóstico para el 18/12/2024</h3>
-                        <p><strong>Temperatura máxima:</strong> 27.16 °C</p>
-                        <p><strong>Temperatura mínima:</strong> 24.95 °C</p>
-                        <p><strong>Humedad promedio:</strong> 84.75 %</p>
-                        <p><strong>Lluvia total:</strong> 27.38 mm</p>
-                        <p><img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Icono del clima"></p>
-                    </article>
-                
-                    <article>
-                        <h3>Pronóstico para el 19/12/2024</h3>
-                        <p><strong>Temperatura máxima:</strong> 25.48 °C</p>
-                        <p><strong>Temperatura mínima:</strong> 24.62 °C</p>
-                        <p><strong>Humedad promedio:</strong> 88.88 %</p>
-                        <p><strong>Lluvia total:</strong> 3.47 mm</p>
-                        <p><img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Icono del clima"></p>
-                    </article>
-                
-                    <article>
-                        <h3>Pronóstico para el 20/12/2024</h3>
-                        <p><strong>Temperatura máxima:</strong> 25.13 °C</p>
-                        <p><strong>Temperatura mínima:</strong> 24.48 °C</p>
-                        <p><strong>Humedad promedio:</strong> 87.13 %</p>
-                        <p><strong>Lluvia total:</strong> 0.90 mm</p>
-                        <p><img src="https://openweathermap.org/img/wn/04n@2x.png" alt="Icono del clima"></p>
-                    </article>
-                
-                    <article>
-                        <h3>Pronóstico para el 21/12/2024</h3>
-                        <p><strong>Temperatura máxima:</strong> 28.19 °C</p>
-                        <p><strong>Temperatura mínima:</strong> 25.96 °C</p>
-                        <p><strong>Humedad promedio:</strong> 79.17 %</p>
-                        <p><strong>Lluvia total:</strong> 0.14 mm</p>
-                        <p><img src="https://openweathermap.org/img/wn/04n@2x.png" alt="Icono del clima"></p>
-                    </article>
-                </body></html>
+</body></html>

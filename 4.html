@@ -1,31 +1,94 @@
 <!DOCTYPE HTML>
 <html lang="es"><head>
     <meta charset="UTF-8">
-    <title>F1Desktop-Indice</title>
+    <title>F1Desktop-Meteorologia</title>
     <link rel="icon" href="multimedia/imágenes/favicon.ico" type="image/x-icon">
     <meta name="author" content="Dario Cristobal Gonzalez">
-    <meta name="description" content="Indice de la ágina web de la Fórmula 1">
-    <meta name="keywords" content="Inicio, Piloto, Noticias, Calendario, Meteorología, Circuito, Viajes, Juegos">
+    <meta name="description" content="Información sobre la meteorología en ese Gran Premio">
+    <meta name="keywords" content="Temperatura, Humedad">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css">
     <link rel="stylesheet" type="text/css" href="estilo/layout.css">
+    <link rel="stylesheet" type="text/css" href="estilo/article_elements.css">
+    <script src="js/pais.js"></script> 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/fondo.js"></script> 
 </head>
-   
-<body style="background-image: url(&quot;https://live.staticflickr.com/65535/52406399358_41e488fe99_b.jpg&quot;); background-size: cover; background-repeat: no-repeat; background-position: center center; min-height: 100vh; margin: 0px;">
+<body>
     <header>
         <h1><a href="index.html">F1 Desktop</a></h1>
         <nav>
-            <a class="active" href="index.html">Inicio</a> 
-            <a href="piloto.html">Piloto</a> 
+            <a href="index.html">Inicio</a> 
+            <a href="piloto.html">Piloto</a>
             <a href="noticias.html">Noticias</a>
             <a href="calendario.html">Calendario</a> 
-            <a href="meteorologia.html">Meteorologia</a> 
-            <a href="circuito.html">Circuito</a> 
+            <a class="active" href="meteorologia.html">Meteorologia</a>
+            <a href="circuito.html">Circuito</a>
             <a href="php/viajes.php">Viajes</a> 
-            <a href="juegos.html">Juegos</a> 
+            <a href="juegos.html">Juegos</a>
         </nav>
     </header>
+    <header><p>Estas en: <a href="index.html">F1 Desktop</a> &gt;&gt; Meteorología</p></header>
+    <h2>Meteorología</h2>
+    <script>
+        "use strict";
+        const pais = new Pais("Singapur", "Singapur", 5917600);
+        pais.inicializarValores("Marina Bay", "República parlamentaria", { lat: 1.290449539261829, lon: 103.8643260229208, alt: 4.07576890888359 }, "Budismo");
+        
+        pais.generarContenidoDinamico();
+    </script><h3> Información del País: Singapur</h3><p> Capital: Singapur</p><ul><li>Circuito de F1: Marina Bay</li><li>Población: 5917600</li><li>Forma de Gobierno: República parlamentaria</li><li>Religión Mayoritaria: Budismo</li></ul><p> Coordenadas de la línea de meta: Latitud: 1.290449539261829, Longitud 103.8643260229208, Altitud 4.07576890888359</p>
 
-</body></html>
+
+                        <article>
+                            <h3>Pronóstico para el 18/12/2024</h3>
+                            <p>Temperatura máxima: 25.68 °C</p>
+                            <p>Temperatura mínima: 25.56 °C</p>
+                            <p>Humedad promedio: 86.00 %</p>
+                            <p>Lluvia total: 0.14 mm</p>
+                            <p><img src="https://openweathermap.org/img/wn/03n@2x.png" alt="Icono del clima"></p>
+                        </article>
+                    
+                        <article>
+                            <h3>Pronóstico para el 19/12/2024</h3>
+                            <p>Temperatura máxima: 25.32 °C</p>
+                            <p>Temperatura mínima: 24.63 °C</p>
+                            <p>Humedad promedio: 90.00 %</p>
+                            <p>Lluvia total: 8.70 mm</p>
+                            <p><img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Icono del clima"></p>
+                        </article>
+                    
+                        <article>
+                            <h3>Pronóstico para el 20/12/2024</h3>
+                            <p>Temperatura máxima: 26.96 °C</p>
+                            <p>Temperatura mínima: 25.15 °C</p>
+                            <p>Humedad promedio: 82.75 %</p>
+                            <p>Lluvia total: 0.69 mm</p>
+                            <p><img src="https://openweathermap.org/img/wn/04d@2x.png" alt="Icono del clima"></p>
+                        </article>
+                    
+                        <article>
+                            <h3>Pronóstico para el 21/12/2024</h3>
+                            <p>Temperatura máxima: 28.96 °C</p>
+                            <p>Temperatura mínima: 25.28 °C</p>
+                            <p>Humedad promedio: 78.88 %</p>
+                            <p>Lluvia total: 12.69 mm</p>
+                            <p><img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Icono del clima"></p>
+                        </article>
+                    
+                        <article>
+                            <h3>Pronóstico para el 22/12/2024</h3>
+                            <p>Temperatura máxima: 26.94 °C</p>
+                            <p>Temperatura mínima: 25.53 °C</p>
+                            <p>Humedad promedio: 83.38 %</p>
+                            <p>Lluvia total: 21.16 mm</p>
+                            <p><img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Icono del clima"></p>
+                        </article>
+                    
+                        <article>
+                            <h3>Pronóstico para el 23/12/2024</h3>
+                            <p>Temperatura máxima: 29.36 °C</p>
+                            <p>Temperatura mínima: 26.74 °C</p>
+                            <p>Humedad promedio: 74.00 %</p>
+                            <p>Lluvia total: 7.40 mm</p>
+                            <p><img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Icono del clima"></p>
+                        </article>
+                    </body></html>

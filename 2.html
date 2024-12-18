@@ -1,159 +1,70 @@
 <!DOCTYPE HTML>
 <html lang="es"><head>
     <meta charset="UTF-8">
-    <title>F1Desktop-Calendario Fórmula 1</title>
+    <title>F1Desktop-Noticias</title>
     <link rel="icon" href="multimedia/imágenes/favicon.ico" type="image/x-icon">
     <meta name="author" content="Dario Cristobal Gonzalez">
-    <meta name="description" content="Calendario de carreras de la temporada">
-    <meta name="keywords" content="Calendario, Gran Premio, Fecha">
+    <meta name="description" content="Noticias sobre el Gran Premio o sobre el piloto">
+    <meta name="keywords" content="Noticias">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css">
     <link rel="stylesheet" type="text/css" href="estilo/layout.css">
-    <link rel="stylesheet" type="text/css" href="estilo/agenda_grid.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/agenda.js"></script>
+    <link rel="stylesheet" type="text/css" href="estilo/article_elements.css">
+    <script src="js/noticias.js"></script>
 </head>
-   
+
 <body>
     <header>
         <h1><a href="index.html">F1 Desktop</a></h1>
         <nav>
-            <a href="index.html">Inicio</a>
+            <a href="index.html">Inicio</a> 
             <a href="piloto.html">Piloto</a>
-            <a href="noticias.html">Noticias</a>
-            <a class="active" href="calendario.html">Calendario</a>
-            <a href="meteorologia.html">Meteorologia</a>
-            <a href="circuito.html">Circuito</a>
-            <a href="php/viajes.php">Viajes</a>
-            <a href="juegos.html">Juegos</a>
+            <a class="active" href="noticias.html">Noticias</a>
+            <a href="calendario.html">Calendario</a>
+            <a href="meteorologia.html">Meteorologia</a> 
+            <a href="circuito.html">Circuito</a> 
+            <a href="php/viajes.php">Viajes</a> 
+            <a href="juegos.html">Juegos</a> 
         </nav>
     </header>
-    <header><p>Estas en: <a href="index.html">F1 Desktop</a> &gt;&gt; Calendario</p></header>
+    <header><p>Estas en: <a href="index.html">F1 Desktop</a> &gt;&gt; Noticias</p></header>
+    
+    <h2>Noticias</h2>
+    
+    <label>Selecciona un archivo de texto:<input type="file" onchange="noticias.readInputFile(this)"> </label>
+
+    
+    <p>Añade una noticia:</p>
+    <label>Título: <input type="text" oninput="window.titulo = this.value"></label>
+    <label>Autor: <input type="text" oninput="window.autor = this.value"></label>
+    <label>Texto: <input type="text" oninput="window.contenido = this.value"></label>
+    
+    <button onclick="noticias.agregarNoticiaManual(window.titulo, window.autor, window.contenido)">Añadir</button>
+    
     <section>
-        <h2>Calendario</h2>
-        <button onclick="cargarCarreras()">Cargar Carreras de la Temporada</button>
-        <ul><li>
-                        <strong>Bahrain Grand Prix</strong><br>
-                        Circuito: Bahrain International Circuit<br>
-                        Coordenadas: 26.0325, 50.5106<br>
-                        Fecha y Hora: 2024-03-02 15:00:00Z
-                    </li><li>
-                        <strong>Saudi Arabian Grand Prix</strong><br>
-                        Circuito: Jeddah Corniche Circuit<br>
-                        Coordenadas: 21.6319, 39.1044<br>
-                        Fecha y Hora: 2024-03-09 17:00:00Z
-                    </li><li>
-                        <strong>Australian Grand Prix</strong><br>
-                        Circuito: Albert Park Grand Prix Circuit<br>
-                        Coordenadas: -37.8497, 144.968<br>
-                        Fecha y Hora: 2024-03-24 04:00:00Z
-                    </li><li>
-                        <strong>Japanese Grand Prix</strong><br>
-                        Circuito: Suzuka Circuit<br>
-                        Coordenadas: 34.8431, 136.541<br>
-                        Fecha y Hora: 2024-04-07 05:00:00Z
-                    </li><li>
-                        <strong>Chinese Grand Prix</strong><br>
-                        Circuito: Shanghai International Circuit<br>
-                        Coordenadas: 31.3389, 121.22<br>
-                        Fecha y Hora: 2024-04-21 07:00:00Z
-                    </li><li>
-                        <strong>Miami Grand Prix</strong><br>
-                        Circuito: Miami International Autodrome<br>
-                        Coordenadas: 25.9581, -80.2389<br>
-                        Fecha y Hora: 2024-05-05 20:00:00Z
-                    </li><li>
-                        <strong>Emilia Romagna Grand Prix</strong><br>
-                        Circuito: Autodromo Enzo e Dino Ferrari<br>
-                        Coordenadas: 44.3439, 11.7167<br>
-                        Fecha y Hora: 2024-05-19 13:00:00Z
-                    </li><li>
-                        <strong>Monaco Grand Prix</strong><br>
-                        Circuito: Circuit de Monaco<br>
-                        Coordenadas: 43.7347, 7.42056<br>
-                        Fecha y Hora: 2024-05-26 13:00:00Z
-                    </li><li>
-                        <strong>Canadian Grand Prix</strong><br>
-                        Circuito: Circuit Gilles Villeneuve<br>
-                        Coordenadas: 45.5, -73.5228<br>
-                        Fecha y Hora: 2024-06-09 18:00:00Z
-                    </li><li>
-                        <strong>Spanish Grand Prix</strong><br>
-                        Circuito: Circuit de Barcelona-Catalunya<br>
-                        Coordenadas: 41.57, 2.26111<br>
-                        Fecha y Hora: 2024-06-23 13:00:00Z
-                    </li><li>
-                        <strong>Austrian Grand Prix</strong><br>
-                        Circuito: Red Bull Ring<br>
-                        Coordenadas: 47.2197, 14.7647<br>
-                        Fecha y Hora: 2024-06-30 13:00:00Z
-                    </li><li>
-                        <strong>British Grand Prix</strong><br>
-                        Circuito: Silverstone Circuit<br>
-                        Coordenadas: 52.0786, -1.01694<br>
-                        Fecha y Hora: 2024-07-07 14:00:00Z
-                    </li><li>
-                        <strong>Hungarian Grand Prix</strong><br>
-                        Circuito: Hungaroring<br>
-                        Coordenadas: 47.5789, 19.2486<br>
-                        Fecha y Hora: 2024-07-21 13:00:00Z
-                    </li><li>
-                        <strong>Belgian Grand Prix</strong><br>
-                        Circuito: Circuit de Spa-Francorchamps<br>
-                        Coordenadas: 50.4372, 5.97139<br>
-                        Fecha y Hora: 2024-07-28 13:00:00Z
-                    </li><li>
-                        <strong>Dutch Grand Prix</strong><br>
-                        Circuito: Circuit Park Zandvoort<br>
-                        Coordenadas: 52.3888, 4.54092<br>
-                        Fecha y Hora: 2024-08-25 13:00:00Z
-                    </li><li>
-                        <strong>Italian Grand Prix</strong><br>
-                        Circuito: Autodromo Nazionale di Monza<br>
-                        Coordenadas: 45.6156, 9.28111<br>
-                        Fecha y Hora: 2024-09-01 13:00:00Z
-                    </li><li>
-                        <strong>Azerbaijan Grand Prix</strong><br>
-                        Circuito: Baku City Circuit<br>
-                        Coordenadas: 40.3725, 49.8533<br>
-                        Fecha y Hora: 2024-09-15 11:00:00Z
-                    </li><li>
-                        <strong>Singapore Grand Prix</strong><br>
-                        Circuito: Marina Bay Street Circuit<br>
-                        Coordenadas: 1.2914, 103.864<br>
-                        Fecha y Hora: 2024-09-22 12:00:00Z
-                    </li><li>
-                        <strong>United States Grand Prix</strong><br>
-                        Circuito: Circuit of the Americas<br>
-                        Coordenadas: 30.1328, -97.6411<br>
-                        Fecha y Hora: 2024-10-20 19:00:00Z
-                    </li><li>
-                        <strong>Mexico City Grand Prix</strong><br>
-                        Circuito: Autódromo Hermanos Rodríguez<br>
-                        Coordenadas: 19.4042, -99.0907<br>
-                        Fecha y Hora: 2024-10-27 20:00:00Z
-                    </li><li>
-                        <strong>São Paulo Grand Prix</strong><br>
-                        Circuito: Autódromo José Carlos Pace<br>
-                        Coordenadas: -23.7036, -46.6997<br>
-                        Fecha y Hora: 2024-11-03 17:00:00Z
-                    </li><li>
-                        <strong>Las Vegas Grand Prix</strong><br>
-                        Circuito: Las Vegas Strip Street Circuit<br>
-                        Coordenadas: 36.1147, -115.173<br>
-                        Fecha y Hora: 2024-11-23 06:00:00Z
-                    </li><li>
-                        <strong>Qatar Grand Prix</strong><br>
-                        Circuito: Losail International Circuit<br>
-                        Coordenadas: 25.49, 51.4542<br>
-                        Fecha y Hora: 2024-12-01 17:00:00Z
-                    </li><li>
-                        <strong>Abu Dhabi Grand Prix</strong><br>
-                        Circuito: Yas Marina Circuit<br>
-                        Coordenadas: 24.4672, 54.6031<br>
-                        Fecha y Hora: 2024-12-08 13:00:00Z
-                    </li></ul> 
-    </section>
+        <h3>Noticias del archivo y agregadas manualmente:</h3>
+    <article>
+                    <h3>Alonso, más cerca de ser historia en Asturias</h3>
+                    <p>El asturiano está en proceso de ampliar su museo y circuito consiguiendo algo nunca antes visto en el Principado</p>
+                    <p>Javier Pazos</p>
+                </article><article>
+                    <h3>Briatore asegura que da igual el piloto que fiche Alpine para 2025</h3>
+                    <p>Cree que no marcará la diferencia y se quiere centrar en 2026</p>
+                    <p>Pol Hermoso</p>
+                </article><article>
+                    <h3>En McLaren creen en la remontada de Aston Martin</h3>
+                    <p>Zak Brown, CEO de la escudería británica, asegura que en 2025 puede haber varios equipos que mejoren su rendimiento, cómo han hecho ellos este año</p>
+                    <p>Manuel Rodriguez</p>
+                </article><article>
+            <h3>xz&lt;</h3>
+            <p><xz< p="">
+            </xz<></p><p><x< p="">
+        </x<></p></article><article>
+            <h3>dfg</h3>
+            <p>dfg</p>
+            <p>dgf</p>
+        </article></section>
+    <script>const noticias = new Noticias();    </script><p>Este navegador soporta el API File</p>
 
 
 </body></html>
